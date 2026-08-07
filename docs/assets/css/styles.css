@@ -1,0 +1,128 @@
+/* ---------------------------------------------------------------------------
+   Portfolio styles layered on top of mkdocs-material.
+   Card-grid / profile-item structure mirrors the fralfaro/portfolio layout.
+   --------------------------------------------------------------------------- */
+
+/* ---------- home hero ---------- */
+.hero {
+  display: flex;
+  align-items: center;
+  gap: 1.8rem;
+  margin: 1.2rem 0 2.4rem;
+}
+/* The markdown image arrives wrapped in a <p>; give that wrapper the fixed
+   width so flex can't shrink it and squash the photo. */
+.hero > p {
+  flex: 0 0 132px;
+  margin: 0;
+  line-height: 0;
+}
+.hero .hero-photo {
+  flex: 0 0 auto;
+  max-width: none;
+  width: 132px;
+  height: 132px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--md-primary-fg-color);
+}
+.hero-text { flex: 1 1 auto; min-width: 0; }
+.hero-text > p:first-child { margin-top: 0; }
+.hero-text p { margin: 0.5rem 0; }
+
+@media screen and (max-width: 600px) {
+  .hero { flex-direction: column; align-items: flex-start; gap: 1rem; }
+}
+
+/* ---------- cards ---------- */
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin: 1.2rem 0 2rem;
+}
+.card {
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 0.7rem;
+  padding: 1.2rem 1.4rem;
+  background: var(--md-code-bg-color);
+}
+/* The upstream neoteroi stylesheet assumes a dark theme and paints card text
+   white. Force theme-aware colours so it stays readable in light mode. */
+.card,
+.card p,
+.card li,
+.card h3,
+.card h4 { color: var(--md-default-fg-color); }
+
+.card .card-title {
+  margin: 0 0 1rem;
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--md-primary-fg-color);
+}
+.card .profile-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  float: right;
+  margin: 0 0 1rem 1.4rem;
+  border: 2px solid var(--md-primary-fg-color);
+}
+
+/* ---------- profile list (one entry per job / paper / degree) ---------- */
+.profile-list { display: flex; flex-direction: column; gap: 1.4rem; }
+
+.profile-item {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  gap: 1rem;
+  align-items: start;
+}
+.profile-item h4 {
+  margin: 0 0 0.15rem;
+  font-size: 0.95rem;
+  line-height: 1.35;
+}
+.profile-item p { margin: 0.25rem 0 0; font-size: 0.78rem; line-height: 1.65; }
+
+.profile-meta {
+  color: var(--md-default-fg-color--light);
+  font-family: var(--md-code-font-family);
+  font-size: 0.7rem !important;
+}
+.profile-authors { font-style: italic; color: var(--md-default-fg-color--light); }
+
+/* A monogram stands in for a company logo — no image files to maintain. */
+.profile-badge {
+  width: 52px;
+  height: 52px;
+  border-radius: 0.55rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--md-code-font-family);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: var(--md-primary-fg-color);
+  background: var(--md-default-bg-color);
+  border: 1px solid var(--md-primary-fg-color);
+}
+
+@media screen and (max-width: 500px) {
+  .profile-item { grid-template-columns: 1fr; }
+  .profile-badge { width: 44px; height: 44px; }
+}
+
+/* ---------- neoteroi cards: keep icons small and tidy ---------- */
+.nt-card-image img { max-height: 56px; width: auto; margin: 0.4rem auto 0; }
+.nt-card { border-radius: 0.7rem; }
+.nt-card-content { padding: 0.7rem 0.9rem; }
+.nt-card-title { font-size: 0.9rem; }
+.nt-card-content p { font-size: 0.75rem; line-height: 1.55; }
+
+/* Buttons sit closer together in a row */
+.md-button { margin: 0.2rem 0.35rem 0.2rem 0; }
