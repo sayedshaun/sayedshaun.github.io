@@ -254,9 +254,38 @@ function render(src) {
   return { html: out.join('\n'), headings: headings };
 }
 
-/* ── boot: load README.md, render it, build the nav ───────────────────── */
-fetch('README.md?v=' + Date.now())
-  .then(function (r) { if (!r.ok) throw new Error(r.status); return r.text(); })
+/* ── boot ─────────────────────────────────────────────────────────────────
+   README.md is the header (name, photo, intro, links). Each section lives in
+   its own file under docs/, listed in docs/sections.txt in display order.
+   If sections.txt is missing or empty, the page just renders README.md.     */
+
+var HEADER = 'README.md';
+var MANIFEST = 'docs/sections.txt';
+
+function get(path) {
+  return fetch(path + '?v=' + Date.now()).then(function (r) {
+    if (!r.ok) throw new Error(path + ' -> ' + r.status);
+    return r.text();
+  });
+}
+
+function assemble() {
+  return get(HEADER).then(function (header) {
+    return get(MANIFEST).then(function (manifest) {
+      var files = manifest.split('\n').map(function (s) { return s.trim(); })
+        .filter(function (s) { return s && s.charAt(0) !== '#'; });
+      // Fetch every section at once; a missing file is skipped, not fatal.
+      return Promise.all(files.map(function (f) {
+        return get(f).catch(function (e) { console.warn('skipped', e.message); return ''; });
+      })).then(function (parts) {
+        return [header].concat(parts).filter(function (t) { return t.trim(); })
+          .join('\n\n---\n\n');   // a rule between sections, added for you
+      });
+    }).catch(function () { return header; });
+  });
+}
+
+assemble()
   .then(function (src) {
     var result = render(src);
     var doc = document.getElementById('doc');
@@ -280,11 +309,12 @@ fetch('README.md?v=' + Date.now())
       nav.appendChild(a);
     });
   })
-  .catch(function () {
+  .catch(function (err) {
     var e = document.getElementById('err');
     e.hidden = false;
     e.textContent = 'Could not load README.md — serve this folder over http '
       + '(e.g. `python3 -m http.server`) rather than opening the file directly.';
+    console.error(err);
   });
 </script>
 </body>
