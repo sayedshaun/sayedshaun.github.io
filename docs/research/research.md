@@ -6,7 +6,7 @@
 
 ### BanSuite: A Unified Toolkit and Software Platform for Low-Resource NLP in Bangla
 
-EACL 2026 · 19th Conference of the European Chapter of the ACL
+EACL 2026 · System Demonstrations · 19th Conference of the European Chapter of the ACL
 { .meta }
 
 Md Abu Sayed, Faisal Ahamed Khan, Jannatul Ferdous Tuli, Nabeel Mohammed,
@@ -16,7 +16,7 @@ A Bangla NLP platform bringing POS tagging, NER, shallow parsing, and dependency
 one roof, trained on a large manually-annotated treebank — around 90% F1/UAS, ahead of existing
 Bangla systems and general multilingual LLMs.
 
-[:material-play-circle: Watch the presentation](https://youtu.be/3pcfiUQfCoA){ .md-button }
+[:material-file-document-outline: Read the paper](https://aclanthology.org/2026.eacl-demo.44/){ .md-button }
 
 </div>
 </div>
