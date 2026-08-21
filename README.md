@@ -18,6 +18,7 @@ docs/research/research.md      publications
 docs/research/talks.md
 docs/software/projects.md      project grid cards
 docs/contact.md
+docs/about_me/certifications.md verified Coursera credentials
 docs/assets/css/theme.css      palette, display type, hero, entry rows, cards
 docs/images/profile.jpg
 docs/files/resume.pdf          the CV the Résumé links download (refreshed from Overleaf in CI)

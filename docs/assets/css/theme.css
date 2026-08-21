@@ -137,17 +137,24 @@
 
 /* ---------- buttons ---------- */
 
+/* Material paints .md-button with --md-primary-fg-color, which is a near-black
+   header colour in the dark scheme — invisible on a dark page. Drive the button
+   from the accent instead, in both schemes. */
 .md-typeset .md-button {
   border-radius: 999px;
   border-width: 1px;
   padding: 0.32rem 0.85rem;
   font-size: 0.7rem;
   font-weight: 500;
+  color: var(--md-accent-fg-color);
+  border-color: var(--md-accent-fg-color);
 }
-.md-typeset .md-button:hover {
+.md-typeset .md-button:hover,
+.md-typeset .md-button:focus {
   background: var(--md-accent-fg-color);
   border-color: var(--md-accent-fg-color);
-  color: var(--md-primary-bg-color);
+  /* the page background is the reliable contrast against the accent fill */
+  color: var(--md-default-bg-color);
 }
 
 /* ---------- grid cards ---------- */

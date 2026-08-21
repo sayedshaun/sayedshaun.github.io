@@ -88,6 +88,9 @@ extra:
     - icon: fontawesome/brands/linkedin
       link: https://linkedin.com/in/sayed-shaun
       name: LinkedIn
+    - icon: simple/huggingface
+      link: https://huggingface.co/SayedShaun
+      name: Hugging Face
     - icon: fontawesome/solid/envelope
       link: mailto:sayedshaun4@gmail.com
       name: Email
