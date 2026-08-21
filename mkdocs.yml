@@ -72,6 +72,7 @@ nav:
       - Profile: about_me/me.md
       - Experience: about_me/work_exp.md
       - Education: about_me/education.md
+      - Certifications: about_me/certifications.md
       - Skills: about_me/skills.md
   - Research:
       - Publications: research/research.md

@@ -55,6 +55,14 @@ Open to roles & collaborations
 
     [:octicons-arrow-right-24: Browse](software/projects.md)
 
+-   :material-certificate-outline:{ .lg .middle } **Certifications**
+
+    ---
+
+    Verified coursework from DeepLearning.AI, AWS, Stanford and Google Cloud.
+
+    [:octicons-arrow-right-24: See them](about_me/certifications.md)
+
 -   :material-school-outline:{ .lg .middle } **Research**
 
     ---
