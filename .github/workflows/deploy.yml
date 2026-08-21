@@ -4,6 +4,9 @@ name: Deploy site
 on:
   push:
     branches: [main]
+  # refresh the résumé from Overleaf even on days with no pushes
+  schedule:
+    - cron: '0 6 * * *'
   workflow_dispatch:
 
 permissions:
@@ -25,6 +28,14 @@ jobs:
           python-version: '3.12'
           cache: pip
       - run: pip install -r requirements.txt
+
+      # Pulls the current PDF from the Overleaf share link. Falls back to the
+      # committed copy if Overleaf is unreachable, so a deploy never fails on it.
+      - name: Fetch résumé from Overleaf
+        env:
+          OVERLEAF_READ_URL: ${{ secrets.OVERLEAF_READ_URL }}
+        run: python3 scripts/fetch_resume.py
+
       - run: mkdocs build --strict
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3

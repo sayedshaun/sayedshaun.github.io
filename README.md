@@ -20,7 +20,8 @@ docs/software/projects.md      project grid cards
 docs/contact.md
 docs/assets/css/theme.css      palette, display type, hero, entry rows, cards
 docs/images/profile.jpg
-docs/files/resume.pdf          exported from Overleaf; the Résumé links download this file
+docs/files/resume.pdf          the CV the Résumé links download (refreshed from Overleaf in CI)
+scripts/fetch_resume.py        pulls the current PDF from the Overleaf share link
 ```
 
 Adding a page = create the markdown file and add one line under `nav:` in `mkdocs.yml`.
@@ -42,6 +43,31 @@ python3 -m venv .venv
 .venv/bin/pip install -r requirements.txt
 .venv/bin/mkdocs serve          # http://127.0.0.1:8000
 ```
+
+## Résumé
+
+The Résumé buttons download `docs/files/resume.pdf`. Overleaf has no public URL that serves a
+compiled PDF — share links only open the editor — so the deploy workflow fetches it instead:
+it grants itself anonymous read access with the share token, triggers a compile, and downloads
+the build output. Editing the CV in Overleaf is enough; the site picks it up on the next
+deploy, and a daily cron run refreshes it even without a push.
+
+One-time setup, using the read-only link from Overleaf's Share → *Anyone with this link can
+view*:
+
+```bash
+gh secret set OVERLEAF_READ_URL --body "https://www.overleaf.com/read/<token>"
+```
+
+Run it by hand any time:
+
+```bash
+OVERLEAF_READ_URL="https://www.overleaf.com/read/<token>" python3 scripts/fetch_resume.py
+```
+
+Without the secret, or if Overleaf is unreachable or changes those endpoints, the step logs a
+warning and the committed PDF ships unchanged — the deploy never fails over the résumé. Pass
+`--strict` to make failures loud.
 
 ## Deploying
 
