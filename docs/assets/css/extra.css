@@ -1,408 +1,71 @@
-/* ---------------------------------------------------------------------------
-   Identity layer.
+/* Additions on top of the fralfaro/portfolio stylesheet, in the same Dracula palette. */
 
-   The layout below comes from the Dracula MkDocs theme and fralfaro/portfolio's
-   stylesheet; this file moves the site off that visual identity — its own
-   palette, a sans face for body copy, flatter chrome, and line icons instead of
-   colour emoji. The reference palette variables are redefined rather than
-   duplicated, so the structural CSS follows along.
-   --------------------------------------------------------------------------- */
-
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
-
-:root {
-  /* slate and teal, carried over from the main branch's palette */
-  --ink-900: #0d1317;
-  --ink-800: #121b21;
-  --ink-700: #17222a;
-  --line:    #23323c;
-  --fg:      #e7eef1;
-  --fg-dim:  #93a5b0;
-  --teal:    #3fbfa8;
-  --teal-dim: rgba(63, 191, 168, 0.13);
-  --sand:    #dda15e;
-
-  /* the reference stylesheet paints everything through these */
-  --dracula-bg: var(--ink-900);
-  --dracula-current: var(--line);
-  --dracula-fg: var(--fg);
-  --dracula-comment: var(--fg-dim);
-  --dracula-cyan: var(--teal);
-  --dracula-green: var(--sand);
-  --dracula-orange: var(--sand);
-  --dracula-pink: var(--teal);
-  --dracula-purple: var(--teal);
-  --dracula-red: #d9776a;
-  --dracula-yellow: var(--sand);
-
-  --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-}
-
-/* ---------- type: sans for reading, mono kept for labels ---------- */
-
-body,
-main.content,
-main.content p,
-main.content li,
-main.content td,
-.card p,
-.card li,
-.profile-item p {
-  font-family: var(--sans);
-  letter-spacing: 0;
-}
-
-body { background: var(--ink-900); color: var(--fg); }
-
-main.content h1,
-main.content h2,
-main.content h3,
-.card h3,
-.profile-item h4 {
-  font-family: var(--sans);
-  color: var(--fg);
-  letter-spacing: -0.015em;
-}
-
-main.content h1 {
-  font-size: 2rem;
-  font-weight: 700;
-  padding-bottom: 0.7rem;
-  border-bottom: 1px solid var(--line);
-  margin-bottom: 1.8rem;
-}
-
-main.content h3 { font-size: 1.15rem; font-weight: 600; }
-
-/* section headings on the home page */
-main.content h3 img { vertical-align: -0.15em; }
-
-.profile-item .profile-meta,
-.side-role,
-.side-status,
-.tag-row span,
-.profile-badge,
-code {
-  font-family: var(--mono);
-}
-
-.profile-item .profile-meta {
-  color: var(--teal);
-  font-size: 0.78rem;
-  font-weight: 500;
-  letter-spacing: 0.02em;
-}
-
-/* ---------- chrome: flatten the gradients ---------- */
-
-.navbar.drac-bg-purple,
-header .navbar {
-  background: var(--ink-800) !important;
-  border-bottom: 1px solid var(--line);
-  min-height: 3.1rem;
-}
-
-nav.divider.drac-bg-purple-cyan,
-.drac-bg-purple-cyan { background: var(--line) !important; }
-
-#sidebarCollapse,
-.custom-menu .btn-primary {
-  background: var(--ink-700) !important;
-  border: 1px solid var(--line) !important;
-  border-radius: 0.4rem !important;
-  transform: none !important;
-  color: var(--fg-dim) !important;
-}
-
-.sidebar,
-#sidebar.drac-bg-black { background: var(--ink-800) !important; }
-
-/* search box + nav buttons */
-.navbar .btn,
-.navbar input,
-#mkdocs-search-query {
-  background: var(--ink-700) !important;
-  border: 1px solid var(--line) !important;
-  color: var(--fg) !important;
-  border-radius: 0.4rem !important;
-  font-family: var(--sans);
-}
-
-/* ---------- sidebar identity block ---------- */
-
-.side-id {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.3rem;
-  margin-top: 0.9rem;
-  text-align: center;
-}
-.side-name { font-size: 1.02rem; font-weight: 600; color: var(--fg); }
-.side-role {
-  font-size: 0.68rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--teal);
-}
-.side-status {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-size: 0.66rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--fg-dim);
-}
-.side-status::before {
-  content: "";
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--sand);
-}
-
-.side-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-  justify-content: center;
-  margin-top: 0.4rem;
-}
-.side-links a {
-  padding: 0.24rem 0.6rem;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  font-size: 0.72rem;
-  color: var(--fg-dim);
-}
-.side-links a:hover {
-  color: var(--teal);
-  border-color: var(--teal);
-  text-decoration: none;
-}
-
-.logo { border-radius: 50%; object-fit: cover; }
-.drac-divider { border-color: var(--line) !important; }
-
-/* ---------- cards ---------- */
-
-.card {
-  background: var(--ink-800) !important;
-  border: 1px solid var(--line) !important;
-  border-radius: 0.5rem !important;
-  box-shadow: none !important;
-}
-.card:hover {
-  transform: none !important;
-  border-color: var(--teal) !important;
-  box-shadow: none !important;
-}
-.card h3 { color: var(--fg) !important; }
-
-/* neoteroi cards: small line icon on the left, not a large centred emoji */
-.nt-card {
-  background: var(--ink-800);
-  border: 1px solid var(--line);
-  border-radius: 0.5rem;
-  transition: border-color 160ms ease;
-}
-.nt-card:hover { border-color: var(--teal); }
-.nt-card-image {
-  background: transparent !important;
-  padding: 0.9rem 1rem 0 !important;
-  text-align: left !important;
-  min-height: 0 !important;
-}
-.nt-card-image img {
-  width: 26px !important;
-  height: 26px !important;
-  max-height: none !important;
-  margin: 0 !important;
-}
-.nt-card-content { padding: 0.55rem 1rem 1rem !important; }
-.nt-card-title {
-  font-family: var(--sans);
-  font-size: 0.95rem !important;
-  font-weight: 600;
-  color: var(--fg) !important;
-}
-.nt-card-content p { color: var(--fg-dim) !important; font-size: 0.84rem; line-height: 1.6; }
-
-/* ---------- profile rows ---------- */
-
+/* Monogram tiles stand in for company logos — no image files to maintain.
+   Sized to match .profile-item img (68px) so rows line up. */
 .profile-badge {
-  width: 44px;
-  height: 44px;
+  width: 68px;
+  height: 68px;
   display: flex;
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
-  border-radius: 0.4rem;
-  background: var(--teal-dim);
-  border: 1px solid rgba(63, 191, 168, 0.4);
-  color: var(--teal);
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-}
-.profile-item { grid-template-columns: 44px minmax(0, 1fr) !important; min-height: 0 !important; }
-.profile-item ul { margin: 0.45rem 0 0; padding-left: 1.05rem; }
-.profile-item li { line-height: 1.6; margin-bottom: 0.4rem; color: var(--fg-dim); }
-.profile-item p { color: var(--fg-dim); }
-.profile-authors { color: var(--fg-dim) !important; font-style: italic; font-size: 0.86rem; }
-
-.tag-row span {
-  border: 1px solid rgba(63, 191, 168, 0.4) !important;
-  background: var(--teal-dim) !important;
-  color: var(--teal) !important;
-  border-radius: 0.35rem !important;
-  font-size: 0.72rem !important;
-  letter-spacing: 0.03em;
+  border-radius: 0.45rem;
+  background: rgba(189, 147, 249, 0.12);
+  border: 1px solid var(--dracula-purple);
+  color: var(--dracula-purple);
+  font-family: "SFMono-Regular", Consolas, monospace;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
 }
 
-/* text links in the presentation card */
+.profile-item ul {
+  margin: 0.45rem 0 0;
+  padding-left: 1.1rem;
+}
+
+.profile-item li {
+  line-height: 1.55;
+  margin-bottom: 0.35rem;
+}
+
+.profile-authors {
+  color: var(--dracula-comment) !important;
+  font-style: italic;
+  font-size: 0.88rem;
+}
+
+/* Pages with a single card should span the grid rather than sit in one half. */
+@media (min-width: 1200px) {
+  .card-grid.single {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Round the sidebar portrait, as on the reference site. */
+.md-logo img,
+.navbar-brand img,
+.sidebar img.logo,
+img.logo {
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+@media (max-width: 900px) {
+  .profile-badge { width: 52px; height: 52px; font-size: 0.85rem; }
+}
+
+/* The reference's .social-row is sized for 48px icon images; mine holds text
+   links, so let them size to their label instead of a fixed square. */
 .social-row a {
   width: auto;
   height: auto;
-  padding: 0.4rem 0.8rem;
-  border-radius: 999px;
-  background: transparent;
-  border: 1px solid var(--line);
-  color: var(--fg-dim);
-  font-size: 0.82rem;
-  font-weight: 500;
+  padding: 0.42rem 0.85rem;
+  color: var(--dracula-fg);
+  font-size: 0.86rem;
+  font-weight: 650;
 }
 .social-row a:hover {
-  color: var(--teal);
-  border-color: var(--teal);
-  transform: none;
+  color: var(--dracula-green);
   text-decoration: none;
 }
-
-/* single-card pages should span the grid */
-@media (min-width: 1200px) {
-  .card-grid.single { grid-template-columns: minmax(0, 1fr); }
-}
-
-/* ---------- tables, links, timeline ---------- */
-
-main.content table { border-color: var(--line); }
-main.content th {
-  background: var(--ink-700);
-  color: var(--fg);
-  font-family: var(--sans);
-  font-size: 0.82rem;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-main.content td { color: var(--fg-dim); font-size: 0.88rem; }
-
-main.content a { color: var(--teal); }
-main.content a:hover { color: var(--sand); }
-
-.nt-timeline-title { color: var(--fg) !important; font-family: var(--sans); }
-.nt-timeline-sub-title { color: var(--teal) !important; font-family: var(--mono); font-size: 0.75rem; }
-.nt-timeline-dot { background: var(--teal) !important; }
-.nt-timeline::before,
-.nt-timeline-content { color: var(--fg-dim); }
-
-/* ---------- footer ---------- */
-
-.site-footer {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem 1.2rem;
-  justify-content: space-between;
-  padding: 0.85rem 1.5rem;
-  background: var(--ink-800);
-  border-top: 1px solid var(--line);
-  font-size: 0.74rem;
-  color: var(--fg-dim);
-}
-.site-footer a { color: var(--fg-dim); }
-.site-footer a:hover { color: var(--teal); text-decoration: none; }
-
-@media (max-width: 900px) {
-  .profile-badge { width: 38px; height: 38px; font-size: 0.66rem; }
-  .profile-item { grid-template-columns: 38px minmax(0, 1fr) !important; }
-}
-
-/* ---------- overrides that need to beat the theme's own selectors ---------- */
-
-/* .drac-text sets Fira Code on <body>, so everything inherits mono */
-body.drac-text,
-.drac-text,
-main.content,
-main.content p,
-main.content li,
-main.content td,
-main.content h1,
-main.content h2,
-main.content h3,
-main.content h4,
-.card h3,
-.profile-item h4,
-.nt-card-title,
-.side-name,
-.navbar,
-#sidebar a {
-  font-family: var(--sans) !important;
-}
-
-/* keep monospace where it earns its place: meta lines, labels, code */
-.profile-item .profile-meta,
-.side-role,
-.side-status,
-.tag-row span,
-.profile-badge,
-.nt-timeline-sub-title,
-code, pre, kbd {
-  font-family: var(--mono) !important;
-}
-
-code {
-  background: var(--teal-dim) !important;
-  color: var(--teal) !important;
-  border-radius: 0.25rem;
-}
-
-/* the rotated gradient diamond behind the sidebar toggle */
-.sidebar .custom-menu .btn.btn-primary::after {
-  background: var(--ink-700) !important;
-  border: 1px solid var(--line);
-  border-radius: 0.4rem !important;
-  transform: none !important;
-}
-.sidebar .custom-menu .btn { width: 40px !important; height: 40px !important; }
-.sidebar .custom-menu { top: 96px; margin-right: -20px !important; }
-.sidebar .custom-menu .btn i { color: var(--fg-dim); font-size: 15px !important; }
-
-/* footer is fixed and full-width; keep its content inside the viewport */
-footer { z-index: 5; }
-.site-footer { width: 100%; box-sizing: border-box; }
-
-/* sidebar nav links */
-#sidebar .drac-list a,
-#sidebar li a { color: var(--fg-dim) !important; font-size: 0.88rem; }
-#sidebar li a:hover,
-#sidebar li a.active { color: var(--teal) !important; }
-
-/* footer is fixed with width:100% starting after the sidebar, so its right-hand
-   content overflows the viewport — anchor it to the right edge instead */
-footer {
-  width: auto !important;
-  right: 0;
-}
-
-/* the theme's purple dropdown carets */
-#sidebar .fa-chevron-right,
-#sidebar .fa-chevron-down,
-#sidebar i[class*="chevron"],
-#sidebar .drac-text-purple {
-  color: var(--fg-dim) !important;
-}
-#sidebar li a:hover i[class*="chevron"] { color: var(--teal) !important; }
-#sidebar i,
-#sidebar a i { color: inherit !important; }
