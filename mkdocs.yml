@@ -73,9 +73,7 @@ nav:
       - Experience: about_me/work_exp.md
       - Education: about_me/education.md
       - Skills: about_me/skills.md
-  - Research:
-      - Publications: research/research.md
-      - Talks: research/talks.md
+  - Research: research/research.md
   - Projects: software/projects.md
   - Certifications: about_me/certifications.md
   - Contact: contact.md

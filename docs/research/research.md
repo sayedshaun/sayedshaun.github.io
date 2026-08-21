@@ -17,6 +17,7 @@ one roof, trained on a large manually-annotated treebank — around 90% F1/UAS, 
 Bangla systems and general multilingual LLMs.
 
 [:material-file-document-outline: Read the paper](https://aclanthology.org/2026.eacl-demo.44/){ .md-button }
+[:material-play-circle-outline: Watch the presentation](https://youtu.be/3pcfiUQfCoA){ .md-button }
 
 </div>
 </div>
