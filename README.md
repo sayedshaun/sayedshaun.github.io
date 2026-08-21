@@ -10,7 +10,7 @@ section, stitched together in file-name order by `docs/index.md`:
 
 ```
 docs/_content/00-intro.md         left rail: photo, name, tagline, bio, status, links
-docs/_content/05-highlights.md    headline numbers
+docs/_content/05-about.md         the longer story
 docs/_content/10-experience.md    jobs
 docs/_content/20-projects.md      projects
 docs/_content/30-research.md      publications + interests
@@ -35,7 +35,6 @@ section numbers build themselves from the `##` headings, so nothing else needs u
 | `{ .note }` after a paragraph | accent-bar callout |
 | `{ .links }` after a row of links | pill buttons |
 | `{ .status }` after a short line | monospace line with a pulsing dot |
-| a list wrapped in `<div class="figures" markdown>` | highlights, with `**numbers**` set in the serif accent |
 | a list wrapped in `<div class="stack" markdown>` | label / value rows (the Toolkit table) |
 
 Other files: `docs/images/profile.jpg` (photo), `docs/files/resume.pdf` (résumé),

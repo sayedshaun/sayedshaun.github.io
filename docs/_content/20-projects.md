@@ -1,11 +1,27 @@
 ## Projects
 
+### [subagents](https://github.com/sayedshaun/subagents)
+
+*Python · agent orchestration · typed state*
+
+A lightweight framework for wiring plain Python functions — and the agents inside them — into
+a graph that runs branches in parallel, routes on conditions, and threads one typed state
+object through the whole thing. [Documentation](https://sayedshaun.github.io/subagents/).
+
 ### [OneCrawler](https://github.com/sayedshaun/onecrawler)
 
 *Python · asyncio · LLM extraction*
 
 An async crawling library with sitemap discovery, browser-based extraction, and LLM-powered
 structured output — all driven by a single Settings object instead of a config maze.
+
+### [OneCrawler Backend](https://github.com/sayedshaun/onecrawler-backend)
+
+*Python · FastAPI · async job queue*
+
+The service that turns the library into a platform: a REST API for auth, crawl jobs, settings,
+and extracted data, with the crawling itself handed to an async job queue running on
+OneCrawler.
 
 ### [LangTrain](https://github.com/sayedshaun/langtrain)
 

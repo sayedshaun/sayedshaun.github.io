@@ -449,16 +449,6 @@ a { color: inherit; }
 }
 .prose ul li strong { color: var(--ink); font-weight: 600; }
 
-/* highlights: the numbers carried by the serif */
-.figures li { font-size: 0.97rem; }
-.prose .figures li strong {
-  font-family: var(--serif);
-  font-size: 1.12em;
-  font-weight: 500;
-  color: var(--accent) !important;
-  letter-spacing: -0.01em;
-}
-
 /* toolkit: label / value rows */
 .prose .stack ul { margin-bottom: 0; }
 .prose .stack li::before { display: none; }

@@ -5,10 +5,8 @@
 AI / ML Engineer · Dhaka
 { .tagline }
 
-I build production AI systems — LLM and SLM optimisation, agentic RAG pipelines, and
-low-resource NLP for **Bangla**. My background is in software engineering, which is mostly
-why I care about the unglamorous half of machine learning: inference cost, data plumbing,
-and whether the thing still works next month.
+I build production AI systems — LLM optimisation, agentic RAG, and low-resource NLP for
+**Bangla**. Currently at Synesis IT PLC.
 
 Open to roles & collaborations
 { .status }

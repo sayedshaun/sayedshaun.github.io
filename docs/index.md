@@ -1,6 +1,6 @@
 --8<-- "00-intro.md"
 
---8<-- "05-highlights.md"
+--8<-- "05-about.md"
 
 --8<-- "10-experience.md"
 
