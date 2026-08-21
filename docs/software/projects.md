@@ -2,7 +2,7 @@
 
 <div class="grid cards stack" markdown>
 
--   :material-graph-outline:{ .lg .middle } **subagents**
+-   :material-graph-outline:{ .lg .middle } **Subagents**
 
     ---
 
