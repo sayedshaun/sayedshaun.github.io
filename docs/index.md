@@ -1,8 +1,9 @@
-# Personal Portfolio
+# Md Abu Sayed
 
-### Hi 👋 My name is Md Abu Sayed
+AI/ML engineer in Dhaka — LLM optimisation, agentic RAG, and low-resource NLP for Bangla.
+Currently at Synesis IT PLC, and preparing for a master's. Start anywhere below.
 
-### 👤 About Me
+### About Me
 
 ::cards:: cols=4
 
@@ -28,7 +29,7 @@
 
 ::/cards::
 
-### 📖 Academics
+### Academics
 
 ::cards:: cols=4
 
@@ -44,7 +45,7 @@
 
 ::/cards::
 
-### 🚀 Portfolio
+### Portfolio
 
 ::cards:: cols=4
 

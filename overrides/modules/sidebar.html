@@ -1,0 +1,34 @@
+<nav id="sidebar" class="sidebar drac-bg-black">
+    <div class="custom-menu">
+        <button type="button" id="sidebarCollapse" class="btn btn-primary">
+            <i class="fa fa-bars"></i>
+            <span class="sr-only">Menu</span>
+        </button>
+    </div>
+
+    <div class="p-4">
+        {% if config.theme.logo %}
+            <img class="logo" src="{{ config.theme.logo|url }}" height="150px">
+        {% endif %}
+
+        <div class="side-id">
+            <span class="side-name">{{ config.site_name }}</span>
+            <span class="side-role">AI / ML Engineer</span>
+            <span class="side-status">Open to roles</span>
+        </div>
+
+        <hr class="drac-divider" />
+
+        <!-- block menu -->
+        <ul class="mb-4 drac-list drac-list-none">
+            {% include "modules/menu.html" %}
+        </ul>
+        <!-- endblock -->
+
+        <div class="side-links">
+            <a href="https://github.com/sayedshaun" target="_blank" rel="noreferrer">GitHub</a>
+            <a href="https://linkedin.com/in/sayed-shaun" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a href="mailto:sayedshaun4@gmail.com">Email</a>
+        </div>
+    </div>
+</nav>

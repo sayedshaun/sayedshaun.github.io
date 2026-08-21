@@ -33,6 +33,7 @@ extra_css:
 
 theme:
   name: dracula
+  custom_dir: overrides
   language: en
   logo: images/profile.jpg
   favicon: images/profile.jpg
@@ -43,18 +44,18 @@ plugins:
   - search
 
 nav:
-  - 🏠 Home: index.md
-  - 👤 About Me:
+  - Home: index.md
+  - About Me:
       - Presentation: about_me/me.md
       - Education: about_me/education.md
       - Experience: about_me/work_exp.md
       - Skills: about_me/skills.md
-  - 📖 Academics:
+  - Academics:
       - Research: research/research.md
       - Talks: research/talks.md
-  - 🚀 Portfolio:
+  - Portfolio:
       - Projects: software/projects.md
-  - ✉️ Contact: contact.md
+  - Contact: contact.md
 
 extra:
   social:

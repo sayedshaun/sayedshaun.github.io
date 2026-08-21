@@ -1,10 +1,15 @@
 # sayedshaun.github.io — fralfaro-style branch
 
-Personal site rebuilt to match [fralfaro/portfolio](https://github.com/fralfaro/portfolio)
-(MIT): the [Dracula theme for MkDocs](https://github.com/dracula/mkdocs), neoteroi cards and
-timeline, a sidebar portrait, and a home page of icon cards linking into each section.
-`docs/assets/css/styles.css` and `docs/css/neoteroi-mkdocs.css` come from that project;
-`docs/assets/css/extra.css` holds my additions on top.
+Personal site built on the layout of [fralfaro/portfolio](https://github.com/fralfaro/portfolio)
+(MIT) — the [Dracula theme for MkDocs](https://github.com/dracula/mkdocs), neoteroi cards and
+timeline, a sidebar portrait, and a home page of cards linking into each section — with its own
+visual identity on top.
+
+`docs/assets/css/styles.css` and `docs/css/neoteroi-mkdocs.css` come from that project.
+`docs/assets/css/extra.css` is the identity layer: a slate-and-teal palette in place of the
+Dracula purples, Inter for body copy instead of theme-wide monospace, flat chrome instead of
+the gradient header and diamond toggle, and teal line icons instead of colour emoji.
+`overrides/modules/` replaces the theme's sidebar block and footer with my own.
 
 `main` carries a different design — a single-page site with a hand-written theme.
 
