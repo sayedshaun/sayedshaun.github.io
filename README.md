@@ -1,38 +1,39 @@
-# sayedshaun.github.io — fralfaro-style branch
+# sayedshaun.github.io — material branch
 
-Personal site rebuilt to match [fralfaro/portfolio](https://github.com/fralfaro/portfolio)
-(MIT): the [Dracula theme for MkDocs](https://github.com/dracula/mkdocs), neoteroi cards and
-timeline, a sidebar portrait, and a home page of icon cards linking into each section.
-`docs/assets/css/styles.css` and `docs/css/neoteroi-mkdocs.css` come from that project;
-`docs/assets/css/extra.css` holds my additions on top.
-
-`main` carries a different design — a single-page site with a hand-written theme.
+Personal site built on [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/),
+restyled: a teal palette, Newsreader for display headings over Inter body text, tabbed
+navigation, and a light/dark toggle. `main` carries a different design — a single scrolling
+page with a hand-written theme.
 
 ## Content layout
 
 ```
-mkdocs.yml                    theme, nav, extensions
-docs/index.md                 home: icon cards per section
-docs/about_me/me.md           presentation card
+mkdocs.yml                     theme, nav, palette, extensions
+docs/index.md                  hero + grid cards + selected work (nav and toc hidden)
+docs/about_me/me.md            profile
+docs/about_me/work_exp.md      experience entries
 docs/about_me/education.md
-docs/about_me/work_exp.md     work + tech experience, timeline
 docs/about_me/skills.md
-docs/research/research.md     publications
+docs/research/research.md      publications
 docs/research/talks.md
-docs/software/projects.md     neoteroi cards + details table
+docs/software/projects.md      project grid cards
 docs/contact.md
-docs/assets/css/styles.css    from fralfaro/portfolio
-docs/assets/css/extra.css     badges, single-column card grids, social row
-docs/css/neoteroi-mkdocs.css  cards / timeline stylesheet
-docs/images/icons/*.svg       twemoji card icons
+docs/assets/css/theme.css      palette, display type, hero, entry rows, cards
+docs/images/profile.jpg
+docs/files/resume.pdf
 ```
 
 Adding a page = create the markdown file and add one line under `nav:` in `mkdocs.yml`.
 
-Conventions the CSS styles: `<div class="card-grid">` wraps one or two `<div class="card">`
-columns (add `single` to the grid for a full-width card); inside a card, `<article
-class="profile-item">` pairs a `<div class="profile-badge">` monogram with a heading,
-a `<p class="profile-meta">` line, and body copy.
+### Conventions the stylesheet adds
+
+| You write | It renders as |
+|---|---|
+| `<div class="entry" markdown>` + `<div class="entry-mark">AI</div>` | an entry row with a monogram tile |
+| `{ .meta }` after a line | monospace date/place line |
+| `{ .hero-role }` / `{ .status }` | the hero's role line / status line with a dot |
+| `<div class="tags" markdown><span>…</span></div>` | small tag chips |
+| `<div class="grid cards" markdown>` | Material's card grid |
 
 ## Preview locally
 
@@ -45,6 +46,5 @@ python3 -m venv .venv
 ## Deploying
 
 `.github/workflows/deploy.yml` builds and publishes to GitHub Pages on every push to `main`.
-This branch is not deployed unless it is merged there. One-time setup:
-**Settings → Pages → Source → GitHub Actions** (Pages also requires the repo to be public on
-a free plan).
+This branch is not deployed unless merged there. One-time setup: **Settings → Pages → Source →
+GitHub Actions** (Pages also requires the repo to be public on a free plan).

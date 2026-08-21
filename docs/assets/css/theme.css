@@ -1,0 +1,237 @@
+/* ---------------------------------------------------------------------------
+   Md Abu Sayed — Material for MkDocs, restyled.
+   A quieter palette than Material's defaults, a serif for display headings,
+   and a few components of my own: the hero, entry rows, and meta lines.
+   --------------------------------------------------------------------------- */
+
+@import url("https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap");
+
+:root {
+  --md-primary-fg-color:        #0f766e;
+  --md-primary-fg-color--light: #14918a;
+  --md-primary-fg-color--dark:  #0b5852;
+  --md-accent-fg-color:         #0f766e;
+  --md-primary-bg-color:        #ffffff;
+  --md-primary-bg-color--light: rgba(255, 255, 255, 0.75);
+
+  --serif: "Newsreader", Georgia, "Times New Roman", serif;
+  --edge: var(--md-default-fg-color--lightest);
+}
+
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color:        #0e1116;
+  --md-primary-fg-color--light: #161b22;
+  --md-primary-fg-color--dark:  #0a0d11;
+  --md-accent-fg-color:         #4ecdc4;
+  --md-default-bg-color:        #0e1116;
+  --md-typeset-a-color:         #4ecdc4;
+}
+
+[data-md-color-scheme="default"] {
+  --md-default-bg-color: #fdfdfc;
+  --md-typeset-a-color: #0f766e;
+}
+
+/* ---------- chrome ---------- */
+
+.md-header {
+  box-shadow: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+.md-header__topic:first-child { font-weight: 600; letter-spacing: -0.01em; }
+.md-header__button.md-logo img { border-radius: 50%; }
+.md-tabs { border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+.md-tabs__link { font-size: 0.76rem; opacity: 0.85; }
+.md-tabs__link--active { opacity: 1; }
+
+/* ---------- typography ---------- */
+
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3 {
+  font-family: var(--serif);
+  font-weight: 500;
+  letter-spacing: -0.018em;
+  color: var(--md-default-fg-color);
+}
+.md-typeset h1 { font-size: 2.1rem; line-height: 1.15; margin-bottom: 0.6rem; }
+.md-typeset h2 {
+  font-size: 1.35rem;
+  margin-top: 2.6rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--edge);
+}
+.md-typeset h3 { font-size: 1.12rem; margin-top: 1.9rem; margin-bottom: 0.1rem; }
+.md-typeset { font-size: 0.78rem; line-height: 1.75; }
+
+/* meta line under an entry heading: *italic on its own line* */
+.md-typeset h3 + p > em:only-child,
+.md-typeset .meta {
+  display: block;
+  font-family: var(--md-code-font-family);
+  font-style: normal;
+  font-size: 0.68rem;
+  letter-spacing: 0.03em;
+  color: var(--md-default-fg-color--light);
+  margin-bottom: 0.5rem;
+}
+
+/* ---------- hero ---------- */
+
+.hero {
+  display: flex;
+  align-items: center;
+  gap: 1.8rem;
+  padding: 0.6rem 0 2.2rem;
+  border-bottom: 1px solid var(--edge);
+  margin-bottom: 1rem;
+}
+.md-typeset .hero-photo {
+  flex: 0 0 132px;
+  width: 132px !important;
+  height: 132px !important;
+  max-width: none;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 0 1px var(--edge), 0 0 0 6px var(--md-default-bg-color),
+              0 0 0 7px rgba(15, 118, 110, 0.25);
+}
+.hero-body { min-width: 0; }
+.hero-body h1 { margin: 0 0 0.35rem !important; }
+.hero-role {
+  font-family: var(--md-code-font-family);
+  font-size: 0.68rem;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--md-accent-fg-color);
+  margin: 0 0 0.7rem !important;
+}
+.hero-body p { margin: 0 0 0.7rem; }
+
+@media screen and (max-width: 600px) {
+  .hero { flex-direction: column; align-items: flex-start; gap: 1.1rem; }
+  .md-typeset .hero-photo { flex-basis: 104px; width: 104px !important; height: 104px !important; }
+}
+
+/* the home page hides the nav, so let its content breathe */
+.md-main__inner > .md-content { max-width: 52rem; margin-inline: auto; }
+
+/* status pill */
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--md-code-font-family);
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--md-default-fg-color--light);
+}
+.status::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--md-accent-fg-color);
+}
+
+/* ---------- buttons ---------- */
+
+.md-typeset .md-button {
+  border-radius: 999px;
+  border-width: 1px;
+  padding: 0.32rem 0.85rem;
+  font-size: 0.7rem;
+  font-weight: 500;
+}
+.md-typeset .md-button:hover {
+  background: var(--md-accent-fg-color);
+  border-color: var(--md-accent-fg-color);
+  color: var(--md-primary-bg-color);
+}
+
+/* ---------- grid cards ---------- */
+
+.md-typeset .grid.cards > ul > li {
+  border: 1px solid var(--edge);
+  border-radius: 0.5rem;
+  padding: 1rem 1.1rem;
+  box-shadow: none;
+  transition: border-color 160ms ease, transform 160ms ease;
+}
+.md-typeset .grid.cards > ul > li:hover {
+  border-color: var(--md-accent-fg-color);
+  transform: translateY(-2px);
+}
+.md-typeset .grid.cards > ul > li > hr { display: none; }
+.md-typeset .grid.cards > ul > li > p:first-child { margin-bottom: 0.15rem; }
+.md-typeset .grid.cards .twemoji { height: 1.15rem; width: 1.15rem; }
+
+/* ---------- entry rows (jobs, papers, degrees) ---------- */
+
+.entry {
+  display: grid;
+  grid-template-columns: 3.2rem minmax(0, 1fr);
+  gap: 1.1rem;
+  padding: 1.15rem 0;
+  border-top: 1px solid var(--edge);
+}
+.entry:first-of-type { border-top: 0; }
+.entry-mark {
+  width: 3.2rem;
+  height: 3.2rem;
+  display: grid;
+  place-items: center;
+  border-radius: 0.45rem;
+  border: 1px solid rgba(15, 118, 110, 0.35);
+  background: rgba(15, 118, 110, 0.08);
+  color: var(--md-accent-fg-color);
+  font-family: var(--md-code-font-family);
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+.entry h3 { margin: 0 !important; font-size: 1.05rem; }
+.entry .meta { margin: 0.1rem 0 0.4rem; }
+.entry ul { margin: 0.3rem 0 0 !important; }
+.entry li { margin-bottom: 0.28rem; }
+.entry p:last-child { margin-bottom: 0; }
+
+@media screen and (max-width: 600px) {
+  .entry { grid-template-columns: 1fr; gap: 0.6rem; }
+  .entry-mark { width: 2.5rem; height: 2.5rem; }
+}
+
+/* ---------- tag row ---------- */
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 0.9rem 0 0;
+}
+.tags span {
+  padding: 0.18rem 0.55rem;
+  border: 1px solid var(--edge);
+  border-radius: 0.3rem;
+  font-family: var(--md-code-font-family);
+  font-size: 0.62rem;
+  letter-spacing: 0.04em;
+  color: var(--md-default-fg-color--light);
+}
+
+/* ---------- tables and footer ---------- */
+
+.md-typeset table:not([class]) {
+  border: 1px solid var(--edge);
+  border-radius: 0.5rem;
+  font-size: 0.7rem;
+}
+.md-typeset table:not([class]) th {
+  background: var(--md-default-fg-color--lightest);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+.md-footer-meta { background: var(--md-primary-fg-color--dark); }
+.md-copyright__highlight { font-size: 0.65rem; }

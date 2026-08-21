@@ -1,4 +1,4 @@
-## Skills
+# Skills
 
 === "Languages"
 
@@ -12,7 +12,7 @@
 
     `vLLM` · `ONNX` · `FastAPI`
 
-=== "Data & Delivery"
+=== "Data & delivery"
 
     `PostgreSQL` · `MongoDB` · `VectorDB` · `Docker` · `MLOps`
 

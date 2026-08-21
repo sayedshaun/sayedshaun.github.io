@@ -1,61 +1,75 @@
-# Personal Portfolio
+---
+hide:
+  - navigation
+  - toc
+---
 
-### Hi 👋 My name is Md Abu Sayed
+<div class="hero" markdown>
+<img class="hero-photo" src="images/profile.jpg" alt="Md Abu Sayed">
+<div class="hero-body" markdown>
 
-### 👤 About Me
+# Md Abu Sayed
 
-::cards:: cols=4
+AI / ML Engineer · Dhaka, Bangladesh
+{ .hero-role }
 
-- title: Presentation
-  content: Personal information
-  image: images/icons/hi.svg
-  url: ./about_me/me.md
+I build production AI systems — LLM optimisation, agentic RAG, and low-resource NLP for
+**Bangla**. Currently at Synesis IT PLC, and preparing for a master's.
 
-- title: Education
-  content: Degree and coursework
-  image: images/icons/book.svg
-  url: ./about_me/education.md
+Open to roles & collaborations
+{ .status }
 
-- title: Experience
-  content: Work and tech experience
-  image: images/icons/work.svg
-  url: ./about_me/work_exp.md
+</div>
+</div>
 
-- title: Skills
-  content: Languages, frameworks, tooling
-  image: images/icons/tools.svg
-  url: ./about_me/skills.md
+[:material-email: Email](mailto:sayedshaun4@gmail.com){ .md-button }
+[:fontawesome-brands-github: GitHub](https://github.com/sayedshaun){ .md-button }
+[:fontawesome-brands-linkedin: LinkedIn](https://linkedin.com/in/sayed-shaun){ .md-button }
+[:material-file-document: Résumé](files/resume.pdf){ .md-button }
 
-::/cards::
+## Start anywhere
 
-### 📖 Academics
+<div class="grid cards" markdown>
 
-::cards:: cols=4
+-   :material-account-outline:{ .lg .middle } **Profile**
 
-- title: Research
-  content: Papers and research interests
-  image: images/icons/idea.svg
-  url: ./research/research.md
+    ---
 
-- title: Talks
-  content: Conference presentations
-  image: images/icons/talk.svg
-  url: ./research/talks.md
+    How I got here, and the half of machine learning I care about.
 
-::/cards::
+    [:octicons-arrow-right-24: Read on](about_me/me.md)
 
-### 🚀 Portfolio
+-   :material-briefcase-outline:{ .lg .middle } **Experience**
 
-::cards:: cols=4
+    ---
 
-- title: Projects
-  content: Open-source libraries and platforms
-  image: images/icons/rocket.svg
-  url: ./software/projects.md
+    Three roles across model optimisation, agentic RAG, and Bangla NLP.
 
-- title: Contact
-  content: Open to roles and collaborations
-  image: images/icons/mail.svg
-  url: ./contact.md
+    [:octicons-arrow-right-24: Work history](about_me/work_exp.md)
 
-::/cards::
+-   :material-rocket-launch-outline:{ .lg .middle } **Projects**
+
+    ---
+
+    subagents, OneCrawler, LangTrain, WSD, and Bangladesh's Corpus platform.
+
+    [:octicons-arrow-right-24: Browse](software/projects.md)
+
+-   :material-school-outline:{ .lg .middle } **Research**
+
+    ---
+
+    BanSuite at EACL 2026, plus where the research is heading next.
+
+    [:octicons-arrow-right-24: Publications](research/research.md)
+
+</div>
+
+## Selected work
+
+| Result | Where it came from |
+|---|---|
+| **90%** | of employee HR queries resolved automatically by an agentic RAG chatbot over SQL and vector stores |
+| **+7.14% NER · +4.64% POS · +5.00% QA** | over previous Bangla baselines, from models pretrained and fine-tuned in-house |
+| **~90% F1/UAS** | across four Bangla parsing tasks in BanSuite, published at EACL 2026 |
+| **25%** | better recommendations after replacing keyword search with hybrid semantic retrieval |
