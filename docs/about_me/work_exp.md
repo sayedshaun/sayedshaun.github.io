@@ -6,7 +6,7 @@
 
 ### AI Engineer · Synesis IT PLC
 
-Jul 2026 — present · Dhaka, Bangladesh
+Jun 2026 — present · Dhaka, Bangladesh
 { .meta }
 
 - Research and implement optimisation techniques for small and large language models — quantisation among them — to cut inference latency, shrink model size, and make deployment cheaper.
@@ -37,7 +37,7 @@ Sep 2024 — Jun 2026 · Dhaka, Bangladesh
 
 ### Trainee Software Engineer · Syntax Solution Limited
 
-Jul 2024 — Aug 2024 · Dhaka, Bangladesh
+Jun 2024 — Aug 2024 · Dhaka, Bangladesh
 { .meta }
 
 - Replaced keyword search in a recommendation engine with a hybrid semantic + keyword architecture, a **25%** quality improvement.
