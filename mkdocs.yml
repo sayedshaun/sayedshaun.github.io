@@ -1,87 +1,40 @@
 site_name: Md Abu Sayed
 site_url: https://sayedshaun.github.io/
 site_author: Md Abu Sayed
-site_description: AI/ML Engineer building LLM systems, NLP tooling, and scalable ML infrastructure.
+site_description: AI/ML Engineer building LLM systems, low-resource Bangla NLP, and production ML infrastructure.
 
-repo_name: sayedshaun/sayedshaun.github.io
-repo_url: https://github.com/sayedshaun/sayedshaun.github.io
+repo_url: https://github.com/sayedshaun
 edit_uri: ''
 
+# A hand-written single-page theme — no Material, no plugins. All the design
+# lives in theme/main.html + theme/assets/style.css; all the content lives in
+# docs/_content/*.md, which docs/index.md stitches together.
 theme:
-  name: material
-  language: en
-  favicon: images/profile.jpg
-  logo: images/profile.jpg
-  features:
-    - navigation.instant
-    - navigation.tracking
-    - navigation.top
-    - content.tabs.link
-    - search.suggest
-  palette:
-    # White by default, regardless of the visitor's system theme.
-    # The header icon toggles to dark for anyone who wants it.
-    - scheme: default
-      primary: teal
-      accent: teal
-      toggle:
-        icon: material/weather-night
-        name: Switch to dark mode
-    - scheme: slate
-      primary: teal
-      accent: teal
-      toggle:
-        icon: material/weather-sunny
-        name: Switch to light mode
+  name: null
+  custom_dir: theme
+
+plugins: []
 
 markdown_extensions:
   - attr_list
   - md_in_html
-  - def_list
-  - admonition
+  - smarty
   - footnotes
   - toc:
-      permalink: true
-  - pymdownx.details
-  - pymdownx.superfences
-  - pymdownx.inlinehilite
-  - pymdownx.highlight:
-      anchor_linenums: true
-  - pymdownx.tabbed:
-      alternate_style: true
-  - pymdownx.tasklist:
-      custom_checkbox: true
-  - pymdownx.emoji:
-      emoji_index: !!python/name:material.extensions.emoji.twemoji
-      emoji_generator: !!python/name:material.extensions.emoji.to_svg
-  - neoteroi.cards
-  - neoteroi.timeline
+      permalink: false
+  - pymdownx.snippets:
+      base_path: ['docs/_content']
+      check_paths: true
 
-extra_css:
-  - css/neoteroi-mkdocs.css
-  - assets/css/styles.css
-
-plugins:
-  - search
+# Section files are includes, not pages of their own.
+exclude_docs: |
+  _content/
 
 extra:
-  social:
-    - icon: fontawesome/brands/github
-      link: https://github.com/sayedshaun
-    - icon: fontawesome/brands/linkedin
-      link: https://linkedin.com/in/sayed-shaun
-    - icon: fontawesome/solid/envelope
-      link: mailto:sayedshaun4@gmail.com
-
-nav:
-  - 🏠 Home: index.md
-  - 👤 About Me:
-      - Profile: about/profile.md
-      - Experience: about/experience.md
-      - Education: about/education.md
-      - Skills: about/skills.md
-  - 📖 Research:
-      - Publications: research/publications.md
-  - 🚀 Portfolio:
-      - Projects: portfolio/projects.md
-  - ✉️ Contact: contact.md
+  profile:
+    name: Md Abu Sayed
+    role: AI / ML Engineer
+    email: sayedshaun4@gmail.com
+    github: https://github.com/sayedshaun
+    linkedin: https://linkedin.com/in/sayed-shaun
+    scholar: https://youtu.be/3pcfiUQfCoA

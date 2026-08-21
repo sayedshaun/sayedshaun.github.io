@@ -1,53 +1,56 @@
-# Portfolio — MkDocs experiment
+# sayedshaun.github.io
 
-Experimental branch. Rebuilds the portfolio as a **multi-page MkDocs site**, in the style of
-[fralfaro/portfolio](https://github.com/fralfaro/portfolio) — sidebar nav, a home page of
-icon cards, per-section card grids, a timeline, search, and a light/dark toggle.
+Personal site — a single scrolling page built from markdown by [MkDocs](https://www.mkdocs.org/)
+with a small hand-written theme. Live at <https://sayedshaun.github.io>.
 
-`main` keeps the zero-build version (one `index.html` rendering markdown at load time) and is
-what https://sayedshaun.github.io currently serves. **This branch changes nothing live.**
+## Editing
+
+Everything you'd normally want to change lives in `docs/_content/` — one markdown file per
+section, stitched together in file-name order by `docs/index.md`:
+
+```
+docs/_content/00-intro.md         left rail: photo, name, tagline, bio, status, links
+docs/_content/05-highlights.md    headline numbers
+docs/_content/10-experience.md    jobs
+docs/_content/20-projects.md      projects
+docs/_content/30-research.md      publications + interests
+docs/_content/40-education.md     degree
+docs/_content/50-toolkit.md       stack table
+docs/_content/60-contact.md       contact
+```
+
+Everything before the first `##` heading becomes the sticky left rail; everything after it is
+the scrolling column. Adding a section = add `docs/_content/70-writing.md` starting with
+`## Writing`, then add one `--8<-- "70-writing.md"` line to `docs/index.md`. The nav and the
+section numbers build themselves from the `##` headings, so nothing else needs updating.
+
+### Markdown conventions the theme styles
+
+| You write | It renders as |
+|---|---|
+| `## Experience` | small-caps section label with a hairline |
+| `### Role · Company` | entry title (wrap it in `[...](url)` to link it) |
+| `*Jul 2026 — present · Dhaka*` (a line of its own, italic) | monospace meta line |
+| `- item` | dash-marked list |
+| `{ .note }` after a paragraph | accent-bar callout |
+| `{ .links }` after a row of links | pill buttons |
+| `{ .status }` after a short line | monospace line with a pulsing dot |
+| a list wrapped in `<div class="figures" markdown>` | highlights, with `**numbers**` set in the serif accent |
+| a list wrapped in `<div class="stack" markdown>` | label / value rows (the Toolkit table) |
+
+Other files: `docs/images/profile.jpg` (photo), `docs/files/resume.pdf` (résumé),
+`theme/main.html` + `theme/assets/style.css` (layout, colours, type), `mkdocs.yml` (site
+metadata and the footer links).
 
 ## Preview locally
 
 ```bash
-python3 -m venv .venv && source .venv/bin/activate
-pip install -r requirements.txt
-mkdocs serve            # http://127.0.0.1:8000 — live-reloads as you edit
+python3 -m venv .venv
+.venv/bin/pip install -r requirements.txt
+.venv/bin/mkdocs serve          # http://127.0.0.1:8000 — live-reloads as you edit
 ```
 
-## Content layout
+## Deploying
 
-```
-mkdocs.yml                  site config + nav (add a page → add a nav line)
-docs/index.md               home: hero + icon cards
-docs/about/profile.md
-docs/about/experience.md    card grid + timeline
-docs/about/education.md
-docs/about/skills.md
-docs/research/publications.md
-docs/portfolio/projects.md  neoteroi cards
-docs/contact.md
-docs/assets/css/styles.css  hero, card, profile-item styles
-docs/css/                   neoteroi cards/timeline stylesheet
-docs/images/                profile photo + card icons (inline SVG, no downloads)
-docs/files/resume.pdf
-```
-
-## Trade-off vs `main`
-
-| | `main` | this branch |
-|---|---|---|
-| Dependencies | none | Python + MkDocs + 2 packages |
-| Build step | none | `mkdocs build` |
-| Editing | one markdown file per section | same, plus a nav entry in `mkdocs.yml` |
-| Pages | single scrolling page | multi-page with sidebar + search |
-| Deploy | `git push` | `mkdocs gh-deploy` or an Actions workflow |
-
-## Deploying this version (only if you decide to adopt it)
-
-```bash
-mkdocs gh-deploy        # builds and pushes to the gh-pages branch
-```
-
-Then switch GitHub Pages source to `gh-pages` in repo Settings → Pages. Until you do that,
-`main` stays live.
+Push or merge to `main` — `.github/workflows/deploy.yml` builds the site and publishes it to
+GitHub Pages. One-time setup: **repo Settings → Pages → Source → GitHub Actions**.
