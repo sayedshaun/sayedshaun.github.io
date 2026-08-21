@@ -13,8 +13,8 @@ hide:
 AI / ML Engineer · Dhaka, Bangladesh
 { .hero-role }
 
-I build production AI systems — LLM optimisation, agentic RAG, and low-resource NLP for
-**Bangla**. Currently at Synesis IT PLC, and preparing for a master's.
+I build production AI systems — **LLM optimisation**, **agentic AI**, and the retrieval and
+serving infrastructure around them. Currently at Synesis IT PLC, and preparing for a master's.
 
 Open to roles & collaborations
 { .status }
@@ -43,7 +43,7 @@ Open to roles & collaborations
 
     ---
 
-    Three roles across model optimisation, agentic RAG, and Bangla NLP.
+    Three roles across model optimisation, agentic systems, and applied NLP.
 
     [:octicons-arrow-right-24: Work history](about_me/work_exp.md)
 
@@ -51,7 +51,7 @@ Open to roles & collaborations
 
     ---
 
-    subagents, OneCrawler, LangTrain, WSD, and Bangladesh's Corpus platform.
+    Agent orchestration, crawling infrastructure, and language-model tooling.
 
     [:octicons-arrow-right-24: Browse](software/projects.md)
 
@@ -59,7 +59,7 @@ Open to roles & collaborations
 
     ---
 
-    BanSuite at EACL 2026, plus where the research is heading next.
+    Published work, plus where I'm heading: multi-agent systems, agents, and LLMs.
 
     [:octicons-arrow-right-24: Publications](research/research.md)
 

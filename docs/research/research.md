@@ -23,7 +23,7 @@ Bangla systems and general multilingual LLMs.
 
 ## Research interests
 
-- Low-resource language modelling, with a focus on Bangla
-- Syntactic annotation and treebank-driven evaluation
-- Retrieval-augmented and agentic LLM systems
-- Model compression and efficient inference
+- **Multi-agent systems** — coordination, delegation, and control across many agents
+- **AI agents** — tool use, planning, memory, and reliability under real workloads
+- **Large language models** — training, adaptation, and efficient inference
+- **AGI** — generalisation and reasoning beyond narrow, task-specific systems
