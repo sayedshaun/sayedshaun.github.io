@@ -93,6 +93,23 @@ optimisation.
 </div>
 
 <div class="entry" markdown>
+<div class="entry-mark">VIZ</div>
+<div markdown>
+
+### Data Visualization with Python
+
+IBM
+{ .meta }
+
+Building charts and dashboards in Matplotlib, Seaborn, Plotly and Folium, and choosing the
+right form for the data at hand.
+
+[:material-check-decagram: Verify](https://www.coursera.org/account/accomplishments/verify/EELDXXPW2BTN){ .md-button }
+
+</div>
+</div>
+
+<div class="entry" markdown>
 <div class="entry-mark">COMM</div>
 <div markdown>
 
