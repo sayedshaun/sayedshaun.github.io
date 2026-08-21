@@ -20,7 +20,7 @@ docs/software/projects.md      project grid cards
 docs/contact.md
 docs/assets/css/theme.css      palette, display type, hero, entry rows, cards
 docs/images/profile.jpg
-docs/files/resume.pdf
+docs/files/resume.pdf          exported from Overleaf; the Résumé links download this file
 ```
 
 Adding a page = create the markdown file and add one line under `nav:` in `mkdocs.yml`.
