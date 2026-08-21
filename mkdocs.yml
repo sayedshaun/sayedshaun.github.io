@@ -1,40 +1,69 @@
+# Structure and styling follow fralfaro/portfolio (MIT), rebuilt with my own content.
 site_name: Md Abu Sayed
 site_url: https://sayedshaun.github.io/
 site_author: Md Abu Sayed
 site_description: AI/ML Engineer building LLM systems, low-resource Bangla NLP, and production ML infrastructure.
 
-repo_url: https://github.com/sayedshaun
-edit_uri: ''
-
-# A hand-written single-page theme — no Material, no plugins. All the design
-# lives in theme/main.html + theme/assets/style.css; all the content lives in
-# docs/_content/*.md, which docs/index.md stitches together.
-theme:
-  name: null
-  custom_dir: theme
-
-plugins: []
-
 markdown_extensions:
   - attr_list
   - md_in_html
-  - smarty
-  - footnotes
-  - toc:
-      permalink: false
-  - pymdownx.snippets:
-      base_path: ['docs/_content']
-      check_paths: true
+  - def_list
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - neoteroi.cards
+  - neoteroi.timeline
+  - neoteroi.projects
 
-# Section files are includes, not pages of their own.
-exclude_docs: |
-  _content/
+extra_css:
+  - css/neoteroi-mkdocs.css
+  - assets/css/styles.css
+  - assets/css/extra.css
+
+theme:
+  name: dracula
+  language: en
+  logo: images/profile.jpg
+  favicon: images/profile.jpg
+  features:
+    - content.tabs.link
+
+plugins:
+  - search
+
+nav:
+  - 🏠 Home: index.md
+  - 👤 About Me:
+      - Presentation: about_me/me.md
+      - Education: about_me/education.md
+      - Experience: about_me/work_exp.md
+      - Skills: about_me/skills.md
+  - 📖 Academics:
+      - Research: research/research.md
+      - Talks: research/talks.md
+  - 🚀 Portfolio:
+      - Projects: software/projects.md
+  - ✉️ Contact: contact.md
 
 extra:
-  profile:
-    name: Md Abu Sayed
-    role: AI / ML Engineer
-    email: sayedshaun4@gmail.com
-    github: https://github.com/sayedshaun
-    linkedin: https://linkedin.com/in/sayed-shaun
-    scholar: https://youtu.be/3pcfiUQfCoA
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/sayedshaun
+      name: GitHub
+    - icon: fontawesome/brands/linkedin
+      link: https://linkedin.com/in/sayed-shaun
+      name: LinkedIn
+    - icon: fontawesome/solid/envelope
+      link: mailto:sayedshaun4@gmail.com
+      name: Email

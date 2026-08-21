@@ -1,15 +1,61 @@
---8<-- "00-intro.md"
+# Personal Portfolio
 
---8<-- "05-about.md"
+### Hi 👋 My name is Md Abu Sayed
 
---8<-- "10-experience.md"
+### 👤 About Me
 
---8<-- "20-projects.md"
+::cards:: cols=4
 
---8<-- "30-research.md"
+- title: Presentation
+  content: Personal information
+  image: images/icons/hi.svg
+  url: ./about_me/me.md
 
---8<-- "40-education.md"
+- title: Education
+  content: Degree and coursework
+  image: images/icons/book.svg
+  url: ./about_me/education.md
 
---8<-- "50-toolkit.md"
+- title: Experience
+  content: Work and tech experience
+  image: images/icons/work.svg
+  url: ./about_me/work_exp.md
 
---8<-- "60-contact.md"
+- title: Skills
+  content: Languages, frameworks, tooling
+  image: images/icons/tools.svg
+  url: ./about_me/skills.md
+
+::/cards::
+
+### 📖 Academics
+
+::cards:: cols=4
+
+- title: Research
+  content: Papers and research interests
+  image: images/icons/idea.svg
+  url: ./research/research.md
+
+- title: Talks
+  content: Conference presentations
+  image: images/icons/talk.svg
+  url: ./research/talks.md
+
+::/cards::
+
+### 🚀 Portfolio
+
+::cards:: cols=4
+
+- title: Projects
+  content: Open-source libraries and platforms
+  image: images/icons/rocket.svg
+  url: ./software/projects.md
+
+- title: Contact
+  content: Open to roles and collaborations
+  image: images/icons/mail.svg
+  url: ./contact.md
+
+::/cards::

@@ -1,55 +1,50 @@
-# sayedshaun.github.io
+# sayedshaun.github.io — fralfaro-style branch
 
-Personal site — a single scrolling page built from markdown by [MkDocs](https://www.mkdocs.org/)
-with a small hand-written theme. Live at <https://sayedshaun.github.io>.
+Personal site rebuilt to match [fralfaro/portfolio](https://github.com/fralfaro/portfolio)
+(MIT): the [Dracula theme for MkDocs](https://github.com/dracula/mkdocs), neoteroi cards and
+timeline, a sidebar portrait, and a home page of icon cards linking into each section.
+`docs/assets/css/styles.css` and `docs/css/neoteroi-mkdocs.css` come from that project;
+`docs/assets/css/extra.css` holds my additions on top.
 
-## Editing
+`main` carries a different design — a single-page site with a hand-written theme.
 
-Everything you'd normally want to change lives in `docs/_content/` — one markdown file per
-section, stitched together in file-name order by `docs/index.md`:
+## Content layout
 
 ```
-docs/_content/00-intro.md         left rail: photo, name, tagline, bio, status, links
-docs/_content/05-about.md         the longer story
-docs/_content/10-experience.md    jobs
-docs/_content/20-projects.md      projects
-docs/_content/30-research.md      publications + interests
-docs/_content/40-education.md     degree
-docs/_content/50-toolkit.md       stack table
-docs/_content/60-contact.md       contact
+mkdocs.yml                    theme, nav, extensions
+docs/index.md                 home: icon cards per section
+docs/about_me/me.md           presentation card
+docs/about_me/education.md
+docs/about_me/work_exp.md     work + tech experience, timeline
+docs/about_me/skills.md
+docs/research/research.md     publications
+docs/research/talks.md
+docs/software/projects.md     neoteroi cards + details table
+docs/contact.md
+docs/assets/css/styles.css    from fralfaro/portfolio
+docs/assets/css/extra.css     badges, single-column card grids, social row
+docs/css/neoteroi-mkdocs.css  cards / timeline stylesheet
+docs/images/icons/*.svg       twemoji card icons
 ```
 
-Everything before the first `##` heading becomes the sticky left rail; everything after it is
-the scrolling column. Adding a section = add `docs/_content/70-writing.md` starting with
-`## Writing`, then add one `--8<-- "70-writing.md"` line to `docs/index.md`. The nav and the
-section numbers build themselves from the `##` headings, so nothing else needs updating.
+Adding a page = create the markdown file and add one line under `nav:` in `mkdocs.yml`.
 
-### Markdown conventions the theme styles
-
-| You write | It renders as |
-|---|---|
-| `## Experience` | small-caps section label with a hairline |
-| `### Role · Company` | entry title (wrap it in `[...](url)` to link it) |
-| `*Jul 2026 — present · Dhaka*` (a line of its own, italic) | monospace meta line |
-| `- item` | dash-marked list |
-| `{ .note }` after a paragraph | accent-bar callout |
-| `{ .links }` after a row of links | pill buttons |
-| `{ .status }` after a short line | monospace line with a pulsing dot |
-| a list wrapped in `<div class="stack" markdown>` | label / value rows (the Toolkit table) |
-
-Other files: `docs/images/profile.jpg` (photo), `docs/files/resume.pdf` (résumé),
-`theme/main.html` + `theme/assets/style.css` (layout, colours, type), `mkdocs.yml` (site
-metadata and the footer links).
+Conventions the CSS styles: `<div class="card-grid">` wraps one or two `<div class="card">`
+columns (add `single` to the grid for a full-width card); inside a card, `<article
+class="profile-item">` pairs a `<div class="profile-badge">` monogram with a heading,
+a `<p class="profile-meta">` line, and body copy.
 
 ## Preview locally
 
 ```bash
 python3 -m venv .venv
 .venv/bin/pip install -r requirements.txt
-.venv/bin/mkdocs serve          # http://127.0.0.1:8000 — live-reloads as you edit
+.venv/bin/mkdocs serve          # http://127.0.0.1:8000
 ```
 
 ## Deploying
 
-Push or merge to `main` — `.github/workflows/deploy.yml` builds the site and publishes it to
-GitHub Pages. One-time setup: **repo Settings → Pages → Source → GitHub Actions**.
+`.github/workflows/deploy.yml` builds and publishes to GitHub Pages on every push to `main`.
+This branch is not deployed unless it is merged there. One-time setup:
+**Settings → Pages → Source → GitHub Actions** (Pages also requires the repo to be public on
+a free plan).
