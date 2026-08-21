@@ -110,6 +110,23 @@ right form for the data at hand.
 </div>
 
 <div class="entry" markdown>
+<div class="entry-mark">GIT</div>
+<div markdown>
+
+### Master Git and Github: Beginner to Expert
+
+Udemy · Anisul Islam
+{ .meta }
+
+Version control end to end — branching and merging, resolving conflicts, and the
+collaboration workflows teams actually run on GitHub.
+
+[:material-check-decagram: Verify](https://www.udemy.com/certificate/UC-c37cf3f7-9413-482d-a9a7-9ef3cda1d342/){ .md-button }
+
+</div>
+</div>
+
+<div class="entry" markdown>
 <div class="entry-mark">COMM</div>
 <div markdown>
 
