@@ -5,10 +5,10 @@ hide:
 ---
 
 <div class="hero" markdown>
-<img class="hero-photo" src="images/profile.jpg" alt="Md Abu Sayed">
+<img class="hero-photo" src="images/profile.jpg" alt="Md Abu Sayed Shaun">
 <div class="hero-body" markdown>
 
-# Md Abu Sayed
+# Md Abu Sayed Shaun
 
 AI / ML Engineer · Dhaka, Bangladesh
 { .hero-role }
@@ -64,12 +64,3 @@ Open to roles & collaborations
     [:octicons-arrow-right-24: Publications](research/research.md)
 
 </div>
-
-## Selected work
-
-| Result | Where it came from |
-|---|---|
-| **90%** | of employee HR queries resolved automatically by an agentic RAG chatbot over SQL and vector stores |
-| **+7.14% NER · +4.64% POS · +5.00% QA** | over previous Bangla baselines, from models pretrained and fine-tuned in-house |
-| **~90% F1/UAS** | across four Bangla parsing tasks in BanSuite, published at EACL 2026 |
-| **25%** | better recommendations after replacing keyword search with hybrid semantic retrieval |
