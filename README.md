@@ -47,7 +47,8 @@ python3 -m venv .venv
 
 ## Résumé
 
-The Résumé buttons download `docs/files/resume.pdf`. Overleaf has no public URL that serves a
+The Résumé buttons open `docs/files/resume.pdf` in the browser's PDF viewer in a new tab; the
+Contact page also offers a direct download link. Overleaf has no public URL that serves a
 compiled PDF — share links only open the editor — so the deploy workflow fetches it instead:
 it grants itself anonymous read access with the share token, triggers a compile, and downloads
 the build output. Editing the CV in Overleaf is enough; the site picks it up on the next
