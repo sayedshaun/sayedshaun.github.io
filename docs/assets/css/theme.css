@@ -235,3 +235,8 @@
 
 .md-footer-meta { background: var(--md-primary-fg-color--dark); }
 .md-copyright__highlight { font-size: 0.65rem; }
+
+/* one card per row — used on the projects page */
+.md-typeset .grid.cards.stack { grid-template-columns: minmax(0, 1fr); }
+.md-typeset .grid.cards.stack > ul > li { padding: 1.15rem 1.3rem; }
+.md-typeset .grid.cards.stack > ul > li > p:first-child { font-size: 1.02rem; }

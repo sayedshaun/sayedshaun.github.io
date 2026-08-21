@@ -1,6 +1,6 @@
 # Projects
 
-<div class="grid cards" markdown>
+<div class="grid cards stack" markdown>
 
 -   :material-graph-outline:{ .lg .middle } **subagents**
 
