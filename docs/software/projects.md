@@ -70,4 +70,16 @@
 
     [:octicons-link-external-16: corpus.bangla.gov.bd](https://corpus.bangla.gov.bd)
 
+-   :material-chat-processing-outline:{ .lg .middle } **ChatDocs**
+
+    ---
+
+    A private, self-hosted RAG chatbot for chatting with your own documents — built on
+    LangChain and LangGraph, with a FastAPI backend and a ChromaDB + PostgreSQL storage layer,
+    shipped as a Dockerised stack.
+
+    `Python` · `LangGraph` · `RAG` · `FastAPI`
+
+    [:octicons-mark-github-16: Repository](https://github.com/sayedshaun/chat-docs)
+
 </div>

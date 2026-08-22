@@ -1,18 +1,17 @@
 # Education
 
-<div class="entry" markdown>
-<div class="entry-mark">BSc</div>
-<div markdown>
+<div class="grid cards stack" markdown>
 
-### B.Sc. in Computer Science & Engineering
+-   **B.Sc. in Computer Science & Engineering**
 
-World University of Bangladesh · Dhaka
-{ .meta }
+    ---
 
-Algorithms, data structures, databases, and software design — the engineering foundation that
-everything since has been built on.
+    World University of Bangladesh · Dhaka
+    { .meta }
 
-</div>
+    Algorithms, data structures, databases, and software design — the engineering foundation
+    that everything since has been built on.
+
 </div>
 
 !!! note "Currently preparing for a master's degree"

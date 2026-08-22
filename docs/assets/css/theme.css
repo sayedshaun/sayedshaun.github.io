@@ -87,9 +87,9 @@
   margin-bottom: 1rem;
 }
 .md-typeset .hero-photo {
-  flex: 0 0 132px;
-  width: 132px !important;
-  height: 132px !important;
+  flex: 0 0 220px;
+  width: 220px !important;
+  height: 220px !important;
   max-width: none;
   border-radius: 50%;
   object-fit: cover;
@@ -110,7 +110,7 @@
 
 @media screen and (max-width: 600px) {
   .hero { flex-direction: column; align-items: flex-start; gap: 1.1rem; }
-  .md-typeset .hero-photo { flex-basis: 104px; width: 104px !important; height: 104px !important; }
+  .md-typeset .hero-photo { flex-basis: 150px; width: 150px !important; height: 150px !important; }
 }
 
 /* the home page hides the nav, so let its content breathe */
@@ -120,19 +120,36 @@
 .status {
   display: inline-flex;
   align-items: center;
-  gap: 0.45rem;
+  gap: 0.5rem;
+  padding: 0.4rem 0.9rem 0.4rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid var(--md-accent-fg-color);
+  background: var(--md-accent-fg-color);
   font-family: var(--md-code-font-family);
-  font-size: 0.62rem;
+  font-size: 0.68rem;
+  font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--md-default-fg-color--light);
+  color: var(--md-primary-bg-color);
+  box-shadow: 0 2px 14px rgba(15, 118, 110, 0.35);
 }
 .status::before {
   content: "";
-  width: 6px;
-  height: 6px;
+  position: relative;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
-  background: var(--md-accent-fg-color);
+  background: var(--md-primary-bg-color);
+  box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+  animation: status-pulse 2.2s ease-out infinite;
+}
+@keyframes status-pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.6); }
+  70%  { box-shadow: 0 0 0 6px rgba(255, 255, 255, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .status::before { animation: none; }
 }
 
 /* ---------- buttons ---------- */
@@ -184,6 +201,7 @@
   border-top: 1px solid var(--edge);
 }
 .entry:first-of-type { border-top: 0; }
+.entry--flush { grid-template-columns: minmax(0, 1fr); }
 .entry-mark {
   width: 3.2rem;
   height: 3.2rem;
@@ -197,6 +215,13 @@
   font-size: 0.66rem;
   font-weight: 600;
   letter-spacing: 0.04em;
+}
+.entry-mark .twemoji {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 1.6rem;
+  width: 1.6rem;
 }
 .entry h3 { margin: 0 !important; font-size: 1.05rem; }
 .entry .meta { margin: 0.1rem 0 0.4rem; }
@@ -225,6 +250,14 @@
   font-size: 0.62rem;
   letter-spacing: 0.04em;
   color: var(--md-default-fg-color--light);
+}
+
+/* icons inline with plain text, e.g. the Skills "where used" table */
+.md-typeset table:not([class]) td .twemoji {
+  height: 0.95em;
+  width: 0.95em;
+  vertical-align: -0.14em;
+  margin-right: 0.1rem;
 }
 
 /* ---------- tables and footer ---------- */
@@ -299,4 +332,13 @@
   border: 1px solid var(--edge);
   border-radius: 0.25rem;
   padding: 0.1rem 0.4rem;
+}
+
+/* the sidebar repeats the site name/logo already shown in the header —
+   drop it once the sidebar sits next to the header (desktop); keep it in
+   the mobile drawer, where it's the only way back to the brand. */
+@media screen and (min-width: 76.25em) {
+  .md-nav--primary[data-md-level="0"] > .md-nav__title {
+    display: none;
+  }
 }

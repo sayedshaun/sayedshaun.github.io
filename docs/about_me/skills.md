@@ -1,26 +1,47 @@
 # Skills
 
-=== "Languages"
+<div class="grid cards stack" markdown>
 
-    `Python` · `SQL` · `Bash`
+-   :material-code-braces:{ .lg .middle } **Languages**
 
-=== "Modelling"
+    ---
 
-    `PyTorch` · `Transformers` · `Hugging Face`
+    :simple-python: Python · :simple-rust: Rust · :material-database-outline: SQL · :simple-gnubash: Bash
 
-=== "Serving"
+-   :material-brain:{ .lg .middle } **Modelling**
 
-    `vLLM` · `ONNX` · `FastAPI`
+    ---
 
-=== "Data & delivery"
+    :simple-pytorch: PyTorch · :simple-tensorflow: TensorFlow · :material-function-variant: JAX · :simple-huggingface: Transformers · :simple-huggingface: Hugging Face · :simple-numpy: NumPy
 
-    `PostgreSQL` · `MongoDB` · `VectorDB` · `Docker` · `MLOps`
+-   :material-rocket-launch-outline:{ .lg .middle } **Serving**
 
-## Where each one is used
+    ---
 
-| Area | Tools | Applied to |
-|---|---|---|
-| Model training | PyTorch, Transformers, Hugging Face | Pretraining and fine-tuning Bangla BERT/GPT/T5/LLaMA |
-| Inference & serving | vLLM, ONNX, FastAPI | Quantised SLM/LLM deployment, meeting-platform AI features |
-| Retrieval | VectorDB, PostgreSQL, MongoDB | Agentic RAG over multiple databases |
-| Delivery | Docker, MLOps | Reproducible training and deployment pipelines |
+    :material-flash-outline: vLLM · :material-cube-outline: llama.cpp · :simple-nvidia: Triton Inference Server · :simple-onnx: ONNX
+
+-   :material-server-outline:{ .lg .middle } **Backend**
+
+    ---
+
+    :simple-fastapi: FastAPI
+
+-   :material-table-large:{ .lg .middle } **Data processing**
+
+    ---
+
+    :simple-pandas: Pandas · :simple-polars: Polars
+
+-   :material-database-outline:{ .lg .middle } **Database**
+
+    ---
+
+    :simple-postgresql: PostgreSQL · :simple-mongodb: MongoDB · :material-vector-square: VectorDB
+
+-   :material-infinity:{ .lg .middle } **MLOps / DevOps**
+
+    ---
+
+    :simple-docker: Docker · :simple-githubactions: CI/CD
+
+</div>

@@ -14,8 +14,6 @@ theme:
     text: Inter
     code: JetBrains Mono
   features:
-    - navigation.tabs
-    - navigation.sections
     - navigation.top
     - navigation.instant
     - navigation.instant.progress
@@ -65,18 +63,23 @@ extra_css:
 
 plugins:
   - search
+  - blog:
+      blog_dir: blog
+      post_url_format: "{slug}"
+      post_date_format: long
+      archive: false
+      categories: true
+      pagination_per_page: 10
 
 nav:
   - Home: index.md
-  - About:
-      - Profile: about_me/me.md
-      - Experience: about_me/work_exp.md
-      - Education: about_me/education.md
-      - Skills: about_me/skills.md
+  - Experience: about_me/work_exp.md
+  - Education: about_me/education.md
+  - Skills: about_me/skills.md
   - Research: research/research.md
   - Projects: software/projects.md
   - Certifications: about_me/certifications.md
-  - Contact: contact.md
+  - Blog: blog/index.md
 
 extra:
   social:
@@ -89,6 +92,12 @@ extra:
     - icon: simple/huggingface
       link: https://huggingface.co/SayedShaun
       name: Hugging Face
+    - icon: simple/leetcode
+      link: https://leetcode.com/u/Sayed_Shaun/
+      name: LeetCode
+    - icon: simple/kaggle
+      link: https://www.kaggle.com/sayedshaun
+      name: Kaggle
     - icon: fontawesome/solid/envelope
       link: mailto:sayedshaun4@gmail.com
       name: Email

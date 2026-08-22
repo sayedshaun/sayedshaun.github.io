@@ -1,9 +1,3 @@
----
-hide:
-  - navigation
-  - toc
----
-
 <div class="hero" markdown>
 <img class="hero-photo" src="images/profile.jpg" alt="Md Abu Sayed Shaun">
 <div class="hero-body" markdown>
@@ -13,7 +7,7 @@ hide:
 AI / ML Engineer · Dhaka, Bangladesh
 { .hero-role }
 
-I build production AI systems — **LLM optimisation**, **agentic AI**, and the retrieval and
+I build production AI systems — **LLM**, **agentic AI**, and the retrieval and
 serving infrastructure around them. Currently at Synesis IT PLC, and preparing for a master's.
 
 Open to roles & collaborations
@@ -22,53 +16,38 @@ Open to roles & collaborations
 </div>
 </div>
 
+<div class="tags" markdown>
+<span>LLM</span>
+<span>Agentic AI</span>
+<span>RAG & retrieval</span>
+<span>MLOps</span>
+<span>Applied NLP</span>
+</div>
+
 [:material-email: Email](mailto:sayedshaun4@gmail.com){ .md-button }
 [:fontawesome-brands-github: GitHub](https://github.com/sayedshaun){ .md-button }
 [:fontawesome-brands-linkedin: LinkedIn](https://linkedin.com/in/sayed-shaun){ .md-button }
 [:material-file-document: Résumé](files/resume.pdf){ .md-button target="_blank" rel="noopener" }
 
-## Start anywhere
+## Profile
 
-<div class="grid cards" markdown>
+I came to machine learning through software engineering, and it still shows in how I work.
+The modelling is rarely the hard part — the hard part is the data pipeline nobody documented,
+the inference bill nobody forecast, and the evaluation that quietly stopped measuring anything
+real. That's the half of the job I've ended up specialising in.
 
--   :material-account-outline:{ .lg .middle } **Profile**
+Day to day that means agentic systems — LLMs that call tools, route across databases, and
+hold up under real traffic — plus the optimisation work that makes them affordable to run.
+I also do research in low-resource NLP, which is where my published work sits, and I'm
+preparing for a master's to push further into both.
 
-    ---
+### At a glance
 
-    How I got here, and the half of machine learning I care about.
-
-    [:octicons-arrow-right-24: Read on](about_me/me.md)
-
--   :material-briefcase-outline:{ .lg .middle } **Experience**
-
-    ---
-
-    Three roles across model optimisation, agentic systems, and applied NLP.
-
-    [:octicons-arrow-right-24: Work history](about_me/work_exp.md)
-
--   :material-rocket-launch-outline:{ .lg .middle } **Projects**
-
-    ---
-
-    Agent orchestration, crawling infrastructure, and language-model tooling.
-
-    [:octicons-arrow-right-24: Browse](software/projects.md)
-
--   :material-certificate-outline:{ .lg .middle } **Certifications**
-
-    ---
-
-    Verified coursework from DeepLearning.AI, AWS, Stanford and Google Cloud.
-
-    [:octicons-arrow-right-24: See them](about_me/certifications.md)
-
--   :material-school-outline:{ .lg .middle } **Research**
-
-    ---
-
-    Published work, plus where I'm heading: multi-agent systems, agents, and LLMs.
-
-    [:octicons-arrow-right-24: Publications](research/research.md)
-
-</div>
+| | |
+|---|---|
+| **Current role** | AI Engineer @ Synesis IT PLC |
+| **Location** | Dhaka, Bangladesh |
+| **Focus** | LLM · agentic AI · retrieval systems |
+| **Education** | B.Sc. Computer Science & Engineering, World University of Bangladesh |
+| **Publication** | BanSuite (EACL 2026) |
+| **Looking for** | AI/ML engineering roles, research collaborations, master's programmes |
