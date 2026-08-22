@@ -15,7 +15,7 @@ import sys
 import urllib.error
 import urllib.request
 
-RESUME_URL = "https://raw.githubusercontent.com/sayedshaun/resume.latex/main/main.pdf"
+RESUME_URL = "https://raw.githubusercontent.com/sayedshaun/resume.latex/main/sayed_shaun_resume.pdf"
 DEFAULT_DEST = "docs/files/resume.pdf"
 MIN_BYTES = 1024
 
