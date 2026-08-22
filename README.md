@@ -23,7 +23,8 @@ Patterns the stylesheet expects:
 
 ## Résumé
 
-`docs/files/resume.pdf` is refreshed from Overleaf on every deploy by
-`scripts/fetch_resume.py`, using the `OVERLEAF_READ_URL` secret. Edit the CV in Overleaf and
-the site catches up on the next deploy, or within a day via the cron in the workflow. If
-Overleaf is unreachable the committed PDF ships unchanged — it never breaks a deploy.
+`docs/files/resume.pdf` is refreshed from
+[sayedshaun/resume.latex](https://github.com/sayedshaun/resume.latex) on every deploy by
+`scripts/fetch_resume.py`. Edit the CV there and push to `main`, and this site catches up on
+the next deploy, or within a day via the cron in the workflow. If GitHub is unreachable the
+committed PDF ships unchanged — it never breaks a deploy.
