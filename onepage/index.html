@@ -215,30 +215,6 @@
   .blurb { font-size: 14.5px; line-height: 1.65; color: var(--text-2); margin: 0; max-width: 340px; }
   .blurb em { color: var(--text); font-style: normal; font-weight: 500; }
 
-  .sidenav { display: flex; flex-direction: column; gap: 2px; margin-top: 48px; }
-  .navlink {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-size: 11px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--text-mute);
-    padding: 6px 0;
-    transition: color 0.18s;
-    position: relative;
-  }
-  .navlink::before {
-    content: "";
-    display: block;
-    width: 24px;
-    height: 1px;
-    background: currentColor;
-    transition: width 0.2s, background 0.18s;
-  }
-  .navlink:hover, .navlink.active { color: var(--text); }
-  .navlink.active::before { width: 48px; background: var(--accent); }
-
   .left-bottom { display: flex; flex-direction: column; gap: 16px; }
   .socials { display: flex; align-items: center; gap: 6px; }
   .soc {
@@ -392,7 +368,7 @@
     .layout { grid-template-columns: 1fr; padding: 0 24px; gap: 0; }
     .left { position: static; height: auto; }
     .left-inner { padding: 48px 0 32px; gap: 32px; }
-    .left-bottom, .sidenav { display: none; }
+    .left-bottom { display: none; }
     .right { padding: 0; }
     section { padding-bottom: 64px; }
     .mobile-footer {
@@ -455,17 +431,6 @@
         <p class="blurb">I build <em>production AI systems</em> — LLM, agentic AI, and the
         retrieval and serving infrastructure around them. Based in Dhaka, Bangladesh.</p>
       </div>
-
-      <nav class="sidenav" aria-label="Sections">
-        <a class="navlink" href="#about" data-section="about">About</a>
-        <a class="navlink" href="#experience" data-section="experience">Experience</a>
-        <a class="navlink" href="#education" data-section="education">Education</a>
-        <a class="navlink" href="#skills" data-section="skills">Skills</a>
-        <a class="navlink" href="#research" data-section="research">Research</a>
-        <a class="navlink" href="#projects" data-section="projects">Projects</a>
-        <a class="navlink" href="#certifications" data-section="certifications">Certifications</a>
-        <a class="navlink" href="#contact" data-section="contact">Contact</a>
-      </nav>
 
       <div class="left-bottom">
         <div class="socials">
@@ -810,7 +775,7 @@
 
 <script>
 (function () {
-  var navLinks = document.querySelectorAll(".navlink, .topbar-link");
+  var navLinks = document.querySelectorAll(".topbar-link");
   var sections = document.querySelectorAll("section[id]");
   if (navLinks.length && "IntersectionObserver" in window) {
     var linksBySection = {};
