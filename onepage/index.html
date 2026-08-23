@@ -39,15 +39,14 @@
   a { color: inherit; text-decoration: none; }
   ::selection { background: var(--accent); color: #001b16; }
 
-  /* ---------- top navbar (Overleaf-style) ---------- */
+  /* ---------- top bar ---------- */
   .topbar {
     position: sticky;
     top: 0;
     z-index: 40;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 24px;
+    justify-content: flex-end;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 48px;
@@ -55,51 +54,6 @@
     background: rgba(10, 10, 12, 0.88);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--line-soft);
-  }
-  .topbar-mark {
-    display: inline-flex;
-    align-items: center;
-    font-family: "JetBrains Mono", monospace;
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--text);
-    letter-spacing: -0.005em;
-    transition: color 0.15s;
-    flex-shrink: 0;
-  }
-  .topbar-mark span { color: var(--accent); }
-  .topbar-mark:hover { color: var(--accent); }
-  .topbar-center {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    scrollbar-width: none;
-  }
-  .topbar-center::-webkit-scrollbar { display: none; }
-  .topbar-link {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    padding: 8px 12px;
-    font-size: 12.5px;
-    color: var(--text-2);
-    white-space: nowrap;
-    border-radius: 6px;
-    transition: color 0.15s, background 0.15s;
-  }
-  .topbar-link:hover { color: var(--text); background: var(--panel); }
-  .topbar-link.active { color: var(--text); }
-  .topbar-link.active::after {
-    content: "";
-    position: absolute;
-    left: 12px;
-    right: 12px;
-    bottom: 2px;
-    height: 2px;
-    border-radius: 2px;
-    background: var(--accent);
   }
   .topbar-right { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
   .topbar-btn {
@@ -118,39 +72,9 @@
   .topbar-btn.ghost:hover { color: var(--text); border-color: var(--text-mute); }
   .topbar-btn.solid { color: #001b16; background: var(--accent); border: 1px solid var(--accent); }
   .topbar-btn.solid:hover { background: #5ee6d5; border-color: #5ee6d5; }
-  .topbar-menu-toggle {
-    display: none;
-    width: 34px; height: 34px;
-    border: 1px solid var(--line-strong);
-    border-radius: 6px;
-    background: transparent;
-    color: var(--text-2);
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-  }
   @media (max-width: 900px) {
-    .topbar-center { display: none; }
-    .topbar-menu-toggle { display: inline-flex; }
     .topbar { padding: 0 24px; }
   }
-  .topbar-mobile-menu {
-    display: none;
-    flex-direction: column;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 8px 24px 16px;
-    border-bottom: 1px solid var(--line-soft);
-    background: var(--bg);
-  }
-  .topbar-mobile-menu.open { display: flex; }
-  .topbar-mobile-menu a {
-    padding: 10px 4px;
-    font-size: 13px;
-    color: var(--text-2);
-    border-bottom: 1px solid var(--line-soft);
-  }
-  .topbar-mobile-menu a:last-child { border-bottom: none; }
 
   .layout {
     display: grid;
@@ -214,6 +138,30 @@
 
   .blurb { font-size: 14.5px; line-height: 1.65; color: var(--text-2); margin: 0; max-width: 340px; }
   .blurb em { color: var(--text); font-style: normal; font-weight: 500; }
+
+  .sidenav { display: flex; flex-direction: column; gap: 2px; margin-top: 48px; }
+  .navlink {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-mute);
+    padding: 6px 0;
+    transition: color 0.18s;
+    position: relative;
+  }
+  .navlink::before {
+    content: "";
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: currentColor;
+    transition: width 0.2s, background 0.18s;
+  }
+  .navlink:hover, .navlink.active { color: var(--text); }
+  .navlink.active::before { width: 48px; background: var(--accent); }
 
   .left-bottom { display: flex; flex-direction: column; gap: 16px; }
   .socials { display: flex; align-items: center; gap: 6px; }
@@ -364,107 +312,11 @@
 
   .mobile-footer { display: none; }
 
-  /* ---------- résumé modal (Overleaf-style zoomable preview) ---------- */
-  body.modal-lock { overflow: hidden; }
-  .resume-modal {
-    display: none;
-    position: fixed;
-    inset: 0;
-    z-index: 100;
-    background: rgba(6, 6, 8, 0.72);
-    backdrop-filter: blur(4px);
-    padding: 32px;
-    align-items: center;
-    justify-content: center;
-  }
-  .resume-modal.open { display: flex; }
-  .resume-panel {
-    width: min(880px, 100%);
-    height: min(86vh, 1000px);
-    background: var(--panel);
-    border: 1px solid var(--line-strong);
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.5);
-  }
-  .resume-toolbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-    padding: 12px 16px;
-    border-bottom: 1px solid var(--line-soft);
-    flex-wrap: wrap;
-  }
-  .resume-title { font-size: 13px; font-weight: 600; color: var(--text); }
-  .resume-zoom-controls { display: flex; align-items: center; gap: 8px; }
-  .resume-zoom-controls button {
-    width: 26px; height: 26px;
-    border: 1px solid var(--line-strong);
-    border-radius: 5px;
-    background: transparent;
-    color: var(--text-2);
-    font-size: 14px;
-    line-height: 1;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    transition: border-color 0.15s, color 0.15s;
-  }
-  .resume-zoom-controls button:hover { color: var(--text); border-color: var(--accent-line); }
-  .resume-zoom-controls button.reset { width: auto; padding: 0 10px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; }
-  #resume-zoom-label { font-family: "JetBrains Mono", monospace; font-size: 11px; color: var(--text-mute); width: 40px; text-align: center; }
-  .resume-actions { display: flex; align-items: center; gap: 14px; }
-  .resume-actions a { font-size: 12px; color: var(--accent); }
-  .resume-actions a:hover { text-decoration: underline; }
-  .resume-actions button {
-    width: 26px; height: 26px;
-    border: 1px solid var(--line-strong);
-    border-radius: 5px;
-    background: transparent;
-    color: var(--text-2);
-    cursor: pointer;
-    transition: border-color 0.15s, color 0.15s;
-  }
-  .resume-actions button:hover { color: var(--text); border-color: var(--accent-line); }
-  .resume-viewport {
-    flex: 1;
-    overflow: auto;
-    background: #050506;
-    display: flex;
-    justify-content: center;
-    padding: 24px;
-  }
-  .resume-sheet {
-    transform-origin: top center;
-    transition: transform 0.08s linear;
-    flex-shrink: 0;
-    width: 760px;
-    height: 1000px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
-  }
-  .resume-sheet embed { width: 100%; height: 100%; border: none; }
-  .resume-hint {
-    margin: 0;
-    padding: 8px 16px;
-    font-size: 11px;
-    color: var(--text-mute);
-    text-align: center;
-    border-top: 1px solid var(--line-soft);
-  }
-  @media (max-width: 640px) {
-    .resume-modal { padding: 12px; }
-    .resume-sheet { width: 100%; height: auto; aspect-ratio: 3/4; }
-  }
-
   @media (max-width: 768px) {
     .layout { grid-template-columns: 1fr; padding: 0 24px; gap: 0; }
     .left { position: static; height: auto; }
     .left-inner { padding: 48px 0 32px; gap: 32px; }
-    .left-bottom { display: none; }
+    .left-bottom, .sidenav { display: none; }
     .right { padding: 0; }
     section { padding-bottom: 64px; }
     .mobile-footer {
@@ -482,35 +334,11 @@
 <body>
 
 <header class="topbar">
-  <a class="topbar-mark" href="#top">sayedshaun<span>.</span></a>
-  <nav class="topbar-center" aria-label="Sections">
-    <a class="topbar-link" href="#about" data-section="about">About</a>
-    <a class="topbar-link" href="#experience" data-section="experience">Experience</a>
-    <a class="topbar-link" href="#education" data-section="education">Education</a>
-    <a class="topbar-link" href="#skills" data-section="skills">Skills</a>
-    <a class="topbar-link" href="#research" data-section="research">Research</a>
-    <a class="topbar-link" href="#projects" data-section="projects">Projects</a>
-    <a class="topbar-link" href="#certifications" data-section="certifications">Certifications</a>
-    <a class="topbar-link" href="#contact" data-section="contact">Contact</a>
-  </nav>
   <div class="topbar-right">
-    <button class="topbar-btn ghost" id="resume-open-btn" type="button">Résumé</button>
+    <a class="topbar-btn ghost" href="../docs/files/resume.pdf" target="_blank" rel="noopener">Résumé</a>
     <a class="topbar-btn solid" href="mailto:sayedshaun4@gmail.com">Email me</a>
-    <button class="topbar-menu-toggle" id="topbar-menu-toggle" aria-label="Open menu" aria-expanded="false">
-      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
-    </button>
   </div>
 </header>
-<nav class="topbar-mobile-menu" id="topbar-mobile-menu" aria-label="Sections (mobile)">
-  <a href="#about" data-section="about">About</a>
-  <a href="#experience" data-section="experience">Experience</a>
-  <a href="#education" data-section="education">Education</a>
-  <a href="#skills" data-section="skills">Skills</a>
-  <a href="#research" data-section="research">Research</a>
-  <a href="#projects" data-section="projects">Projects</a>
-  <a href="#certifications" data-section="certifications">Certifications</a>
-  <a href="#contact" data-section="contact">Contact</a>
-</nav>
 
 <main id="top">
 <div class="layout">
@@ -527,6 +355,17 @@
         <p class="blurb">I build <em>production AI systems</em> — LLM, agentic AI, and the
         retrieval and serving infrastructure around them. Based in Dhaka, Bangladesh.</p>
       </div>
+
+      <nav class="sidenav" aria-label="Sections">
+        <a class="navlink" href="#about" data-section="about">About</a>
+        <a class="navlink" href="#experience" data-section="experience">Experience</a>
+        <a class="navlink" href="#education" data-section="education">Education</a>
+        <a class="navlink" href="#skills" data-section="skills">Skills</a>
+        <a class="navlink" href="#research" data-section="research">Research</a>
+        <a class="navlink" href="#projects" data-section="projects">Projects</a>
+        <a class="navlink" href="#certifications" data-section="certifications">Certifications</a>
+        <a class="navlink" href="#contact" data-section="contact">Contact</a>
+      </nav>
 
       <div class="left-bottom">
         <div class="socials">
@@ -869,33 +708,9 @@
   <div class="copy">© 2026 Sayed Shaun</div>
 </footer>
 
-<div class="resume-modal" id="resume-modal">
-  <div class="resume-panel" role="dialog" aria-modal="true" aria-label="Résumé preview">
-    <div class="resume-toolbar">
-      <span class="resume-title">Résumé</span>
-      <div class="resume-zoom-controls">
-        <button type="button" id="resume-zoom-out" aria-label="Zoom out">−</button>
-        <span id="resume-zoom-label">100%</span>
-        <button type="button" id="resume-zoom-in" aria-label="Zoom in">+</button>
-        <button type="button" id="resume-zoom-reset" class="reset">Reset</button>
-      </div>
-      <div class="resume-actions">
-        <a href="../docs/files/resume.pdf" target="_blank" rel="noopener">Open in new tab ↗</a>
-        <button type="button" id="resume-close-btn" aria-label="Close">✕</button>
-      </div>
-    </div>
-    <div class="resume-viewport" id="resume-viewport">
-      <div class="resume-sheet" id="resume-sheet">
-        <embed src="../docs/files/resume.pdf" type="application/pdf">
-      </div>
-    </div>
-    <p class="resume-hint">Ctrl / ⌘ + scroll or pinch to zoom — only this panel zooms.</p>
-  </div>
-</div>
-
 <script>
 (function () {
-  var navLinks = document.querySelectorAll(".topbar-link");
+  var navLinks = document.querySelectorAll(".navlink");
   var sections = document.querySelectorAll("section[id]");
   if (navLinks.length && "IntersectionObserver" in window) {
     var linksBySection = {};
@@ -916,21 +731,6 @@
     navLinks.forEach(function (l) { if (l.dataset.section === "about") l.classList.add("active"); });
   }
 
-  var menuToggle = document.getElementById("topbar-menu-toggle");
-  var mobileMenu = document.getElementById("topbar-mobile-menu");
-  if (menuToggle && mobileMenu) {
-    menuToggle.addEventListener("click", function () {
-      var open = mobileMenu.classList.toggle("open");
-      menuToggle.setAttribute("aria-expanded", open ? "true" : "false");
-    });
-    mobileMenu.querySelectorAll("a").forEach(function (a) {
-      a.addEventListener("click", function () {
-        mobileMenu.classList.remove("open");
-        menuToggle.setAttribute("aria-expanded", "false");
-      });
-    });
-  }
-
   var form = document.getElementById("contact-form");
   if (form) {
     form.addEventListener("submit", function (e) {
@@ -946,60 +746,6 @@
       msg.classList.add("ok");
     });
   }
-  var resumeBtn = document.getElementById("resume-open-btn");
-  var resumeModal = document.getElementById("resume-modal");
-  var resumeViewport = document.getElementById("resume-viewport");
-  var resumeSheet = document.getElementById("resume-sheet");
-  var zoomLabel = document.getElementById("resume-zoom-label");
-  var zoom = 1;
-  var MIN_ZOOM = 0.5, MAX_ZOOM = 2.5;
-
-  function applyZoom() {
-    resumeSheet.style.transform = "scale(" + zoom + ")";
-    zoomLabel.textContent = Math.round(zoom * 100) + "%";
-  }
-  function setZoom(z) {
-    zoom = Math.min(MAX_ZOOM, Math.max(MIN_ZOOM, z));
-    applyZoom();
-  }
-  function openResume() {
-    resumeModal.classList.add("open");
-    document.body.classList.add("modal-lock");
-    setZoom(1);
-  }
-  function closeResume() {
-    resumeModal.classList.remove("open");
-    document.body.classList.remove("modal-lock");
-  }
-
-  if (resumeBtn && resumeModal) {
-    resumeBtn.addEventListener("click", openResume);
-    resumeModal.addEventListener("click", function (e) {
-      if (e.target === resumeModal) closeResume();
-    });
-    document.getElementById("resume-close-btn").addEventListener("click", closeResume);
-    document.getElementById("resume-zoom-in").addEventListener("click", function () { setZoom(zoom + 0.15); });
-    document.getElementById("resume-zoom-out").addEventListener("click", function () { setZoom(zoom - 0.15); });
-    document.getElementById("resume-zoom-reset").addEventListener("click", function () { setZoom(1); });
-    document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape" && resumeModal.classList.contains("open")) closeResume();
-    });
-
-    // Trackpad pinch and ctrl+wheel both fire as wheel events with ctrlKey
-    // set. Scope that gesture to the résumé viewport only; everywhere else
-    // on the page, block it so the browser never zooms the whole UI.
-    resumeViewport.addEventListener("wheel", function (e) {
-      if (!e.ctrlKey) return;
-      e.preventDefault();
-      setZoom(zoom - e.deltaY * 0.01);
-    }, { passive: false });
-  }
-
-  document.addEventListener("wheel", function (e) {
-    if (e.ctrlKey && !(resumeViewport && resumeViewport.contains(e.target))) {
-      e.preventDefault();
-    }
-  }, { passive: false });
 })();
 </script>
 
