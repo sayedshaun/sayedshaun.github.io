@@ -73,12 +73,6 @@ plugins:
 
 nav:
   - Home: index.md
-  - Experience: about_me/work_exp.md
-  - Education: about_me/education.md
-  - Skills: about_me/skills.md
-  - Research: research/research.md
-  - Projects: software/projects.md
-  - Certifications: about_me/certifications.md
   - Blog: blog/index.md
 
 extra:

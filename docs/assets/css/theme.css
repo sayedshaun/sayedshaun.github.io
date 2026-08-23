@@ -1,5 +1,5 @@
 /* ---------------------------------------------------------------------------
-   Md Abu Sayed Shaun — Material for MkDocs, restyled.
+   Sayed Shaun — Material for MkDocs, restyled.
    A quieter palette than Material's defaults, a serif for display headings,
    and a few components of my own: the hero, entry rows, and meta lines.
    --------------------------------------------------------------------------- */
@@ -115,6 +115,37 @@
 
 /* the home page hides the nav, so let its content breathe */
 .md-main__inner > .md-content { max-width: 52rem; margin-inline: auto; }
+
+/* ---------- single-page anchor nav ---------- */
+
+.md-typeset .page-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem 0.5rem;
+  margin: 1.6rem 0 0.4rem;
+  padding: 0.7rem 0;
+  border-top: 1px solid var(--edge);
+  border-bottom: 1px solid var(--edge);
+  font-family: var(--md-code-font-family);
+  font-size: 0.68rem;
+  letter-spacing: 0.03em;
+  position: sticky;
+  top: 2.6rem;
+  background: var(--md-default-bg-color);
+  z-index: 2;
+}
+.md-typeset .page-nav a {
+  color: var(--md-default-fg-color--light);
+}
+.md-typeset .page-nav a:hover {
+  color: var(--md-accent-fg-color);
+}
+
+/* anchor targets should clear the sticky header + page nav */
+.md-typeset h2[id],
+.md-typeset h3[id] {
+  scroll-margin-top: 6rem;
+}
 
 /* status pill */
 .status {
