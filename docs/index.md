@@ -1,8 +1,8 @@
 <div class="hero" markdown>
-<img class="hero-photo" src="images/profile.jpg" alt="Md Abu Sayed Shaun">
+<img class="hero-photo" src="images/profile.jpg" alt="Sayed Shaun">
 <div class="hero-body" markdown>
 
-# Md Abu Sayed Shaun
+# Sayed Shaun
 
 AI / ML Engineer · Dhaka, Bangladesh
 { .hero-role }
