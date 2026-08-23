@@ -12,6 +12,10 @@
     Algorithms, data structures, databases, and software design — the engineering foundation
     that everything since has been built on.
 
+    **Thesis:** *Advancement in Neuroimaging: Automated Identification of Brain Strokes through
+    Machine Learning*
+    { .meta }
+
 </div>
 
 !!! note "Currently preparing for a master's degree"

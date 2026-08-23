@@ -48,6 +48,6 @@ preparing for a master's to push further into both.
 | **Current role** | AI Engineer @ Synesis IT PLC |
 | **Location** | Dhaka, Bangladesh |
 | **Focus** | LLM · agentic AI · retrieval systems |
-| **Education** | B.Sc. Computer Science & Engineering, World University of Bangladesh |
+| **Education** | B.Sc. Computer Science & Engineering |
 | **Publication** | BanSuite (EACL 2026) |
 | **Looking for** | AI/ML engineering roles, research collaborations, master's programmes |
