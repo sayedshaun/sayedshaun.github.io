@@ -39,6 +39,119 @@
   a { color: inherit; text-decoration: none; }
   ::selection { background: var(--accent); color: #001b16; }
 
+  /* ---------- top navbar (Overleaf-style) ---------- */
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 48px;
+    height: 60px;
+    background: rgba(10, 10, 12, 0.88);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .topbar-mark {
+    display: inline-flex;
+    align-items: center;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text);
+    letter-spacing: -0.005em;
+    transition: color 0.15s;
+    flex-shrink: 0;
+  }
+  .topbar-mark span { color: var(--accent); }
+  .topbar-mark:hover { color: var(--accent); }
+  .topbar-center {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .topbar-center::-webkit-scrollbar { display: none; }
+  .topbar-link {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 12px;
+    font-size: 12.5px;
+    color: var(--text-2);
+    white-space: nowrap;
+    border-radius: 6px;
+    transition: color 0.15s, background 0.15s;
+  }
+  .topbar-link:hover { color: var(--text); background: var(--panel); }
+  .topbar-link.active { color: var(--text); }
+  .topbar-link.active::after {
+    content: "";
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    bottom: 2px;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--accent);
+  }
+  .topbar-right { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+  .topbar-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 14px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    transition: all 0.15s;
+    white-space: nowrap;
+  }
+  .topbar-btn.ghost { color: var(--text-2); border: 1px solid var(--line-strong); }
+  .topbar-btn.ghost:hover { color: var(--text); border-color: var(--text-mute); }
+  .topbar-btn.solid { color: #001b16; background: var(--accent); border: 1px solid var(--accent); }
+  .topbar-btn.solid:hover { background: #5ee6d5; border-color: #5ee6d5; }
+  .topbar-menu-toggle {
+    display: none;
+    width: 34px; height: 34px;
+    border: 1px solid var(--line-strong);
+    border-radius: 6px;
+    background: transparent;
+    color: var(--text-2);
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  @media (max-width: 900px) {
+    .topbar-center { display: none; }
+    .topbar-menu-toggle { display: inline-flex; }
+    .topbar { padding: 0 24px; }
+  }
+  .topbar-mobile-menu {
+    display: none;
+    flex-direction: column;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 8px 24px 16px;
+    border-bottom: 1px solid var(--line-soft);
+    background: var(--bg);
+  }
+  .topbar-mobile-menu.open { display: flex; }
+  .topbar-mobile-menu a {
+    padding: 10px 4px;
+    font-size: 13px;
+    color: var(--text-2);
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .topbar-mobile-menu a:last-child { border-bottom: none; }
+
   .layout {
     display: grid;
     grid-template-columns: 2fr 3fr;
@@ -50,13 +163,13 @@
   }
 
   /* ---------- left: fixed panel ---------- */
-  .left { position: sticky; top: 0; height: 100vh; display: flex; flex-direction: column; }
+  .left { position: sticky; top: 60px; height: calc(100vh - 60px); display: flex; flex-direction: column; }
   .left-inner {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
-    padding: 80px 0 48px;
+    padding: 56px 0 40px;
   }
   .left-top { display: flex; flex-direction: column; }
   .avatar {
@@ -139,8 +252,8 @@
   .copy { font-size: 11px; color: var(--text-mute); letter-spacing: 0.04em; }
 
   /* ---------- right: scrollable sections ---------- */
-  .right { padding: 80px 0; display: flex; flex-direction: column; }
-  section { padding: 0 0 200px; scroll-margin-top: 80px; }
+  .right { padding: 56px 0 80px; display: flex; flex-direction: column; }
+  section { padding: 0 0 200px; scroll-margin-top: 76px; }
   section:last-child { padding-bottom: 120px; }
   .sec-label { font-size: 18px; font-weight: 600; color: var(--text); letter-spacing: -0.02em; margin-bottom: 28px; }
 
@@ -296,7 +409,38 @@
 </head>
 <body>
 
-<main>
+<header class="topbar">
+  <a class="topbar-mark" href="#top">sayedshaun<span>.</span></a>
+  <nav class="topbar-center" aria-label="Sections">
+    <a class="topbar-link" href="#about" data-section="about">About</a>
+    <a class="topbar-link" href="#experience" data-section="experience">Experience</a>
+    <a class="topbar-link" href="#education" data-section="education">Education</a>
+    <a class="topbar-link" href="#skills" data-section="skills">Skills</a>
+    <a class="topbar-link" href="#research" data-section="research">Research</a>
+    <a class="topbar-link" href="#projects" data-section="projects">Projects</a>
+    <a class="topbar-link" href="#certifications" data-section="certifications">Certifications</a>
+    <a class="topbar-link" href="#contact" data-section="contact">Contact</a>
+  </nav>
+  <div class="topbar-right">
+    <a class="topbar-btn ghost" href="../docs/files/resume.pdf" target="_blank" rel="noopener">Résumé</a>
+    <a class="topbar-btn solid" href="mailto:sayedshaun4@gmail.com">Email me</a>
+    <button class="topbar-menu-toggle" id="topbar-menu-toggle" aria-label="Open menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </div>
+</header>
+<nav class="topbar-mobile-menu" id="topbar-mobile-menu" aria-label="Sections (mobile)">
+  <a href="#about" data-section="about">About</a>
+  <a href="#experience" data-section="experience">Experience</a>
+  <a href="#education" data-section="education">Education</a>
+  <a href="#skills" data-section="skills">Skills</a>
+  <a href="#research" data-section="research">Research</a>
+  <a href="#projects" data-section="projects">Projects</a>
+  <a href="#certifications" data-section="certifications">Certifications</a>
+  <a href="#contact" data-section="contact">Contact</a>
+</nav>
+
+<main id="top">
 <div class="layout">
 
   <aside class="left">
@@ -666,23 +810,40 @@
 
 <script>
 (function () {
-  var navLinks = document.querySelectorAll(".navlink");
+  var navLinks = document.querySelectorAll(".navlink, .topbar-link");
   var sections = document.querySelectorAll("section[id]");
   if (navLinks.length && "IntersectionObserver" in window) {
-    var idToLink = {};
-    navLinks.forEach(function (l) { idToLink[l.dataset.section] = l; });
+    var linksBySection = {};
+    navLinks.forEach(function (l) {
+      (linksBySection[l.dataset.section] = linksBySection[l.dataset.section] || []).push(l);
+    });
     var obs = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
-        var link = idToLink[entry.target.id];
-        if (!link) return;
+        var links = linksBySection[entry.target.id];
+        if (!links) return;
         if (entry.isIntersecting) {
           navLinks.forEach(function (l) { l.classList.remove("active"); });
-          link.classList.add("active");
+          links.forEach(function (l) { l.classList.add("active"); });
         }
       });
     }, { rootMargin: "-20% 0px -70% 0px" });
     sections.forEach(function (s) { obs.observe(s); });
-    navLinks[0].classList.add("active");
+    navLinks.forEach(function (l) { if (l.dataset.section === "about") l.classList.add("active"); });
+  }
+
+  var menuToggle = document.getElementById("topbar-menu-toggle");
+  var mobileMenu = document.getElementById("topbar-mobile-menu");
+  if (menuToggle && mobileMenu) {
+    menuToggle.addEventListener("click", function () {
+      var open = mobileMenu.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+    mobileMenu.querySelectorAll("a").forEach(function (a) {
+      a.addEventListener("click", function () {
+        mobileMenu.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+      });
+    });
   }
 
   var form = document.getElementById("contact-form");
