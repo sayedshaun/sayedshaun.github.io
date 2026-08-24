@@ -316,6 +316,8 @@
 
   .mobile-footer { display: none; }
 
+  .mobile-navbar { display: none; }
+
   @media (max-width: 768px) {
     .layout { grid-template-columns: 1fr; padding: 0 24px; gap: 0; }
     .left { position: static; height: auto; }
@@ -323,15 +325,59 @@
     .left-bottom, .sidenav { display: none; }
     .right { padding: 0; }
     section { padding-bottom: 64px; }
+    section:last-child { padding-bottom: 64px; }
     .mobile-footer {
       display: flex;
       flex-direction: column;
       gap: 12px;
-      padding: 32px 24px 48px;
+      padding: 32px 24px calc(96px + env(safe-area-inset-bottom));
       border-top: 1px solid var(--line-soft);
     }
     .glance-row, .skill-row { flex-direction: column; gap: 4px; }
     .glance-row dt, .skill-row dt { flex: none; }
+
+    .mobile-navbar {
+      display: flex;
+      position: fixed;
+      left: 14px;
+      right: 14px;
+      bottom: calc(14px + env(safe-area-inset-bottom));
+      z-index: 45;
+      gap: 6px;
+      padding: 8px;
+      border-radius: 999px;
+      background: rgba(18, 18, 21, 0.55);
+      backdrop-filter: blur(18px) saturate(180%);
+      -webkit-backdrop-filter: blur(18px) saturate(180%);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    :root[data-theme="light"] .mobile-navbar {
+      background: rgba(255, 255, 255, 0.55);
+      border-color: rgba(0, 0, 0, 0.06);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    }
+    .mobile-navbar::-webkit-scrollbar { display: none; }
+    .mobile-navbar a {
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--text-mute);
+      white-space: nowrap;
+      transition: color 0.15s, background 0.15s;
+    }
+    .mobile-navbar a.active {
+      color: var(--bg);
+      background: var(--accent);
+    }
   }
 </style>
 <script>
@@ -721,9 +767,20 @@
   <div class="copy">© 2026 Sayed Shaun</div>
 </footer>
 
+<nav class="mobile-navbar" aria-label="Sections (mobile)">
+  <a href="#about" data-section="about">About</a>
+  <a href="#experience" data-section="experience">Experience</a>
+  <a href="#education" data-section="education">Education</a>
+  <a href="#skills" data-section="skills">Skills</a>
+  <a href="#research" data-section="research">Research</a>
+  <a href="#projects" data-section="projects">Projects</a>
+  <a href="#certifications" data-section="certifications">Certifications</a>
+  <a href="#contact" data-section="contact">Contact</a>
+</nav>
+
 <script>
 (function () {
-  var navLinks = document.querySelectorAll(".navlink");
+  var navLinks = document.querySelectorAll(".navlink, .mobile-navbar a");
   var sections = document.querySelectorAll("section[id]");
   if (navLinks.length && "IntersectionObserver" in window) {
     var linksBySection = {};
@@ -736,7 +793,12 @@
         if (!links) return;
         if (entry.isIntersecting) {
           navLinks.forEach(function (l) { l.classList.remove("active"); });
-          links.forEach(function (l) { l.classList.add("active"); });
+          links.forEach(function (l) {
+            l.classList.add("active");
+            if (l.closest(".mobile-navbar")) {
+              l.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+            }
+          });
         }
       });
     }, { rootMargin: "-20% 0px -70% 0px" });
