@@ -110,6 +110,23 @@
   .blurb { font-size: 14.5px; line-height: 1.65; color: var(--text-2); margin: 0; max-width: 340px; }
   .blurb em { color: var(--text); font-style: normal; font-weight: 500; }
 
+  .resume-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 20px;
+    padding: 9px 16px;
+    border-radius: 8px;
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-line);
+    color: var(--accent);
+    font-size: 12.5px;
+    font-weight: 600;
+    transition: background 0.12s ease, border-color 0.12s ease;
+  }
+  .resume-btn:hover { background: rgba(86, 201, 170, 0.15); border-color: rgba(86, 201, 170, 0.4); }
+  .resume-btn svg { width: 14px; height: 14px; flex-shrink: 0; }
+
   .sidenav { display: flex; flex-direction: column; gap: 2px; margin-top: 48px; }
   .navlink {
     display: flex;
@@ -370,6 +387,10 @@
         <h1 class="name">Sayed <span class="ac">Shaun</span></h1>
         <p class="blurb">I build <em>production AI systems</em> — LLM, agentic AI, and the
         retrieval and serving infrastructure around them. Based in Dhaka, Bangladesh.</p>
+        <a class="resume-btn" href="../docs/files/resume.pdf" download="Sayed-Shaun-Resume.pdf">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0-4-4m4 4 4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"></path></svg>
+          Download résumé
+        </a>
       </div>
 
       <nav class="sidenav" aria-label="Sections">
@@ -760,6 +781,23 @@
     }, { rootMargin: "-20% 0px -70% 0px" });
     sections.forEach(function (s) { obs.observe(s); });
     navLinks.forEach(function (l) { if (l.dataset.section === "about") l.classList.add("active"); });
+
+    // A short last section can sit below the observer's trigger band
+    // without ever fully entering it, so it never gets marked active.
+    // Once the page is scrolled to the bottom, force it active directly.
+    var lastSection = sections[sections.length - 1];
+    var lastLinks = lastSection && linksBySection[lastSection.id];
+    if (lastLinks) {
+      var checkBottom = function () {
+        var atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+        if (atBottom) {
+          navLinks.forEach(function (l) { l.classList.remove("active"); });
+          lastLinks.forEach(function (l) { l.classList.add("active"); });
+        }
+      };
+      window.addEventListener("scroll", checkBottom, { passive: true });
+      window.addEventListener("resize", checkBottom);
+    }
   }
 
   var form = document.getElementById("contact-form");
