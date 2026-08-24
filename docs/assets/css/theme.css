@@ -1,5 +1,5 @@
 /* ---------------------------------------------------------------------------
-   Md Abu Sayed Shaun — Material for MkDocs, restyled.
+   Sayed Shaun — Material for MkDocs, restyled.
    A quieter palette than Material's defaults, a serif for display headings,
    and a few components of my own: the hero, entry rows, and meta lines.
    --------------------------------------------------------------------------- */
@@ -334,11 +334,10 @@
   padding: 0.1rem 0.4rem;
 }
 
-/* the sidebar repeats the site name/logo already shown in the header —
-   drop it once the sidebar sits next to the header (desktop); keep it in
-   the mobile drawer, where it's the only way back to the brand. */
-@media screen and (min-width: 76.25em) {
-  .md-nav--primary[data-md-level="0"] > .md-nav__title {
-    display: none;
-  }
+/* nav only has one entry (Blog) now that the homepage isn't an mkdocs
+   page, so the primary sidebar would just show a single redundant
+   "Blog" link while already on the blog. Drop it; the header logo
+   still links home, and the header search covers finding posts. */
+.md-sidebar--primary {
+  display: none;
 }
