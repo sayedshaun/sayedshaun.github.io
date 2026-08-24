@@ -1,0 +1,832 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sayed Shaun</title>
+<meta name="description" content="Sayed Shaun. AI/ML Engineer at Synesis IT PLC. LLM systems, agentic AI, and production machine-learning infrastructure.">
+<link rel="icon" href="../docs/images/profile.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #14171d;
+    --panel: #1a1d24;
+    --line: #202530;
+    --line-soft: #1c202a;
+    --line-strong: rgba(148, 163, 184, 0.16);
+    --text: #ffffff;
+    --text-2: #c0c5ce;
+    --text-dim: #9ba3ae;
+    --text-mute: #6b7280;
+    --accent: #56c9aa;
+    --accent-soft: rgba(86, 201, 170, 0.08);
+    --accent-line: rgba(86, 201, 170, 0.25);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  html, body {
+    background: var(--bg);
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: -0.01em;
+    margin: 0;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    font-size: 15px;
+    line-height: 1.55;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+  a { color: inherit; text-decoration: none; }
+  ::selection { background: var(--accent); color: #ffffff; }
+
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--line-strong); border-radius: 8px; border: 2px solid var(--bg); }
+  ::-webkit-scrollbar-thumb:hover { background: var(--text-mute); }
+  html { scrollbar-color: var(--line-strong) transparent; }
+
+  .layout {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    min-height: 100vh;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 48px;
+    gap: 80px;
+  }
+
+  /* ---------- left: fixed panel ---------- */
+  .left { position: sticky; top: 0; height: 100vh; display: flex; flex-direction: column; }
+  .left-inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    padding: 80px 0 48px;
+  }
+  .left-top { display: flex; flex-direction: column; }
+  .avatar {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 22px;
+    box-shadow: 0 0 0 1px var(--line-strong), 0 0 0 5px var(--bg), 0 0 0 6px var(--accent-line),
+      0 6px 24px rgba(0, 0, 0, 0.4);
+  }
+  .hello {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-dim);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 8px var(--accent);
+    flex-shrink: 0;
+  }
+  .hello a { color: var(--text); transition: color 0.15s; }
+  .hello a:hover { color: var(--accent); }
+
+  h1.name {
+    font-family: "DM Serif Display", serif;
+    font-size: clamp(32px, 3.5vw, 46px);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0 0 16px;
+    font-weight: 400;
+    color: var(--text);
+  }
+  h1.name .ac { color: var(--accent); }
+
+  .blurb { font-size: 14.5px; line-height: 1.65; color: var(--text-2); margin: 0; max-width: 340px; }
+  .blurb em { color: var(--text); font-style: normal; font-weight: 500; }
+
+  .resume-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: fit-content;
+    margin-top: 22px;
+    padding: 11px 20px;
+    border-radius: 10px;
+    background: var(--accent);
+    border: 1px solid var(--accent);
+    color: #0c1512;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    box-shadow: 0 10px 24px rgba(86, 201, 170, 0.22);
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  }
+  .resume-btn:hover {
+    background: #6fd6bc;
+    box-shadow: 0 12px 30px rgba(86, 201, 170, 0.32);
+    transform: translateY(-1px);
+  }
+  .resume-btn:active { transform: translateY(0); box-shadow: 0 6px 16px rgba(86, 201, 170, 0.25); }
+  .resume-btn svg { width: 15px; height: 15px; flex-shrink: 0; transition: transform 0.18s ease; }
+  .resume-btn:hover svg { transform: scale(1.1); }
+
+  .sidenav { display: flex; flex-direction: column; gap: 2px; margin-top: 48px; }
+  .navlink {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-mute);
+    padding: 6px 0;
+    transition: color 0.18s;
+    position: relative;
+  }
+  .navlink::before {
+    content: "";
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: currentColor;
+    transition: width 0.2s, background 0.18s;
+  }
+  .navlink:hover, .navlink.active { color: var(--text); }
+  .navlink.active::before { width: 48px; background: var(--accent); }
+
+  .left-bottom { display: flex; flex-direction: column; gap: 16px; }
+  .socials { display: flex; align-items: center; gap: 6px; }
+  .soc {
+    width: 32px; height: 32px;
+    display: grid; place-items: center;
+    color: var(--text-mute);
+    transition: color 0.15s;
+  }
+  .soc:hover { color: var(--accent); }
+  .soc svg { width: 15px; height: 15px; fill: currentColor; }
+  .copy { font-size: 11px; color: var(--text-mute); letter-spacing: 0.04em; }
+
+
+  /* ---------- right: scrollable sections ---------- */
+  .right { padding: 80px 0; display: flex; flex-direction: column; }
+  section { padding: 0 0 88px; scroll-margin-top: 80px; }
+  section:last-child { padding-bottom: 60px; }
+  .sec-label { font-size: 18px; font-weight: 600; color: var(--text); letter-spacing: -0.02em; margin-bottom: 28px; }
+
+  .about-text { font-size: 15px; line-height: 1.7; color: var(--text-2); }
+  .about-text p { margin: 0 0 16px; }
+  .about-text p:last-child { margin-bottom: 0; }
+  .about-text em { color: var(--text); font-style: normal; font-weight: 500; }
+  .about-text a { color: var(--accent); border-bottom: 1px solid var(--accent-line); padding-bottom: 1px; }
+  .about-text a:hover { border-bottom-color: var(--accent); }
+
+  .glance { margin-top: 24px; display: flex; flex-direction: column; gap: 0; }
+  .glance-row {
+    display: flex;
+    gap: 16px;
+    padding: 10px 0;
+    border-top: 1px solid var(--line-soft);
+    font-size: 13.5px;
+  }
+  .glance-row:first-child { border-top: none; }
+  .glance-row dt { flex: 0 0 130px; color: var(--text-mute); font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; margin: 0; padding-top: 2px; }
+  .glance-row dd { margin: 0; color: var(--text-2); }
+
+  /* ---------- timeline (experience / education) ---------- */
+  .xp { position: relative; padding-left: 24px; }
+  .xp::before { content: ""; position: absolute; left: 5px; top: 8px; bottom: 8px; width: 1px; background: var(--line); }
+  .xp-row { position: relative; padding-bottom: 36px; }
+  .xp-row:last-child { padding-bottom: 0; }
+  .xp-row::before {
+    content: "";
+    position: absolute;
+    left: -23px; top: 8px;
+    width: 11px; height: 11px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 1.5px solid var(--text-mute);
+    transition: border-color 0.2s;
+  }
+  .xp-row:first-child::before { border-color: var(--accent); background: var(--accent); box-shadow: 0 0 10px var(--accent); }
+  .xp-row:hover::before { border-color: var(--accent); }
+  .xp-when { font-size: 11px; color: var(--text-dim); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 6px; display: block; font-family: "JetBrains Mono", monospace; }
+  .xp-co { font-size: 15px; font-weight: 600; letter-spacing: -0.015em; color: var(--text); margin: 0; display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+  .xp-co a { color: inherit; transition: color 0.15s; }
+  .xp-co a:hover { color: var(--accent); }
+  .xp-loc { color: var(--text-mute); font-weight: 400; font-size: 12px; }
+  .xp-role { font-size: 12px; color: var(--accent); margin: 4px 0 10px; }
+  .xp-desc { font-size: 14px; line-height: 1.65; color: var(--text-2); }
+  .xtags { display: flex; flex-wrap: wrap; margin-top: 10px; }
+  .xtags span { font-size: 11px; color: var(--text-mute); }
+  .xtags span:not(:last-child)::after { content: "·"; margin: 0 8px; }
+
+  .note {
+    margin-top: 20px;
+    padding: 12px 16px;
+    border-left: 2px solid var(--accent);
+    background: var(--accent-soft);
+    border-radius: 0 8px 8px 0;
+    font-size: 13px;
+    color: var(--text-dim);
+    line-height: 1.6;
+  }
+  .note strong { color: var(--text-2); }
+
+  /* ---------- skills ---------- */
+  .skills { display: flex; flex-direction: column; }
+  .skill-row { display: flex; gap: 16px; padding: 12px 0; border-top: 1px solid var(--line-soft); }
+  .skill-row:first-child { border-top: none; }
+  .skill-row dt { flex: 0 0 130px; color: var(--text-mute); font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; margin: 0; padding-top: 2px; }
+  .skill-row dd { margin: 0; display: flex; flex-wrap: wrap; gap: 0; }
+  .skill-row dd span { font-size: 13px; color: var(--text-2); }
+  .skill-row dd span:not(:last-child)::after { content: "·"; margin: 0 8px; color: var(--text-mute); }
+
+  /* ---------- project / cert rows ---------- */
+  .proj { display: flex; flex-direction: column; }
+  .prow {
+    padding: 16px 12px;
+    margin: 0 -12px;
+    border-radius: 10px;
+    border-bottom: 1px solid var(--line-soft);
+    color: var(--text);
+    transition: background 0.15s;
+  }
+  .prow:first-child { border-top: 1px solid var(--line-soft); }
+  .prow:last-child { border-bottom: none; }
+  .prow:hover { background: rgba(255, 255, 255, 0.025); }
+  .ph { display: flex; align-items: baseline; justify-content: space-between; gap: 14px; flex-wrap: wrap; }
+  .pname { display: inline-flex; align-items: center; gap: 5px; font-size: 15px; font-weight: 600; color: var(--text); letter-spacing: -0.01em; transition: color 0.15s; }
+  .pname:hover { color: var(--accent); }
+  .pname-arrow { width: 13px; height: 13px; opacity: 0; transition: opacity 0.15s, transform 0.15s; flex-shrink: 0; }
+  .pname:hover .pname-arrow { opacity: 1; transform: translate(1px, -1px); }
+  .plinks { display: flex; align-items: center; gap: 10px; flex-shrink: 0; flex-wrap: wrap; }
+  .plink { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; color: var(--text-mute); padding: 3px 8px; border: 1px solid var(--line-strong); border-radius: 4px; transition: color 0.15s, border-color 0.15s; }
+  .plink:hover { color: var(--accent); border-color: var(--accent-line); }
+  .pdesc { font-size: 13.5px; color: var(--text-dim); margin: 4px 0 8px; line-height: 1.55; }
+  .ptags { display: flex; flex-wrap: wrap; }
+  .ptags span { font-size: 11px; color: var(--text-mute); }
+  .ptags span:not(:last-child)::after { content: "·"; margin: 0 8px; }
+
+  /* ---------- research ---------- */
+  .paper-venue { font-size: 11px; color: var(--text-mute); text-transform: uppercase; letter-spacing: 0.06em; font-family: "JetBrains Mono", monospace; margin: 4px 0 8px; }
+  .interests { margin: 24px 0 0; padding-left: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .interests li { font-size: 14px; color: var(--text-2); padding-left: 16px; position: relative; }
+  .interests li::before { content: "·"; position: absolute; left: 0; color: var(--accent); }
+  .interests strong { color: var(--text); font-weight: 500; }
+
+  /* ---------- contact ---------- */
+  .contact-text { font-size: 15px; color: var(--text-2); line-height: 1.65; margin: 0 0 28px; max-width: 420px; }
+  .cform { display: flex; flex-direction: column; gap: 18px; max-width: 420px; }
+  .label { display: block; font-size: 11px; color: var(--text-mute); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px; font-family: "JetBrains Mono", monospace; }
+  .cform input, .cform textarea {
+    width: 100%;
+    background: var(--panel);
+    border: 1px solid var(--line-strong);
+    border-radius: 6px;
+    color: var(--text);
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+    padding: 10px 14px;
+    outline: none;
+    transition: border-color 0.15s;
+  }
+  .cform input:focus, .cform textarea:focus { border-color: var(--accent-line); box-shadow: 0 0 0 3px var(--accent-soft); }
+  .cform input::placeholder, .cform textarea::placeholder { color: var(--text-mute); }
+  .cform textarea { min-height: 100px; resize: vertical; }
+  .row-btn { display: flex; align-items: center; gap: 16px; margin-top: 8px; }
+  .send {
+    background: var(--accent-soft);
+    color: var(--accent);
+    border: 1px solid var(--accent-line);
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 13px;
+    letter-spacing: 0.02em;
+    text-transform: none;
+    transition: background 0.12s ease, border-color 0.12s ease;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  .send:hover { background: rgba(86, 201, 170, 0.15); border-color: rgba(86, 201, 170, 0.4); }
+  .fmsg { font-size: 12px; color: var(--text-dim); }
+  .fmsg.ok { color: var(--accent); }
+
+  .mobile-footer { display: none; }
+
+  .mobile-navbar { display: none; }
+
+  @media (max-width: 768px) {
+    .layout { grid-template-columns: 1fr; padding: 0 24px; gap: 0; }
+    .left { position: static; height: auto; }
+    .left-inner { padding: 48px 0 32px; gap: 32px; }
+    .left-bottom, .sidenav { display: none; }
+    .right { padding: 0; }
+    section { padding-bottom: 48px; }
+    section:last-child { padding-bottom: 48px; }
+    .mobile-footer {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 32px 24px calc(96px + env(safe-area-inset-bottom));
+      border-top: 1px solid var(--line-soft);
+    }
+    .glance-row, .skill-row { flex-direction: column; gap: 4px; }
+    .glance-row dt, .skill-row dt { flex: none; }
+
+    .mobile-navbar {
+      display: flex;
+      position: fixed;
+      left: 14px;
+      right: 14px;
+      bottom: calc(14px + env(safe-area-inset-bottom));
+      z-index: 45;
+      gap: 6px;
+      padding: 8px;
+      border-radius: 999px;
+      background: rgba(18, 18, 21, 0.55);
+      backdrop-filter: blur(18px) saturate(180%);
+      -webkit-backdrop-filter: blur(18px) saturate(180%);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .mobile-navbar::-webkit-scrollbar { display: none; }
+    .mobile-navbar a {
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--text-mute);
+      white-space: nowrap;
+      transition: color 0.15s, background 0.15s;
+    }
+    .mobile-navbar a.active {
+      color: var(--bg);
+      background: var(--accent);
+    }
+  }
+</style>
+</head>
+<body>
+
+<main id="top">
+<div class="layout">
+
+  <aside class="left">
+    <div class="left-inner">
+      <div class="left-top">
+        <img class="avatar" src="../docs/images/profile.jpg" alt="Sayed Shaun">
+        <div class="hello">
+          <span class="dot"></span>
+          <span>AI Engineer at <a href="https://synesisitplc.com" target="_blank" rel="noopener">Synesis IT PLC</a></span>
+        </div>
+        <h1 class="name">Sayed <span class="ac">Shaun</span></h1>
+        <p class="blurb">I build <em>production AI systems</em> — LLM, agentic AI, and the
+        retrieval and serving infrastructure around them. Based in Dhaka, Bangladesh.</p>
+        <a class="resume-btn" href="../docs/files/resume.pdf" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7Z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+          Résumé
+        </a>
+      </div>
+
+      <nav class="sidenav" aria-label="Sections">
+        <a class="navlink" href="#about" data-section="about">About</a>
+        <a class="navlink" href="#experience" data-section="experience">Experience</a>
+        <a class="navlink" href="#education" data-section="education">Education</a>
+        <a class="navlink" href="#skills" data-section="skills">Skills</a>
+        <a class="navlink" href="#research" data-section="research">Research</a>
+        <a class="navlink" href="#projects" data-section="projects">Projects</a>
+        <a class="navlink" href="#certifications" data-section="certifications">Certifications</a>
+        <a class="navlink" href="#contact" data-section="contact">Contact</a>
+      </nav>
+
+      <div class="left-bottom">
+        <div class="socials">
+          <a class="soc" href="https://github.com/sayedshaun" target="_blank" rel="noopener" aria-label="GitHub">
+            <svg viewBox="0 0 24 24"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.8.1-.7.1-.7 1.3.1 2 1.3 2 1.3 1.1 2 3 1.4 3.7 1 .1-.8.4-1.4.8-1.7-2.7-.3-5.5-1.3-5.5-6 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.6 3.3-1.2 3.3-1.2.7 1.7.3 2.9.2 3.2.7.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>
+          </a>
+          <a class="soc" href="https://linkedin.com/in/sayed-shaun" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24"><path d="M20.5 2h-17A1.5 1.5 0 0 0 2 3.5v17A1.5 1.5 0 0 0 3.5 22h17a1.5 1.5 0 0 0 1.5-1.5v-17A1.5 1.5 0 0 0 20.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 1 1 8.3 6.5a1.78 1.78 0 0 1-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0 0 13 14.19a.66.66 0 0 0 0 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 0 1 2.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg>
+          </a>
+          <a class="soc" href="https://huggingface.co/SayedShaun" target="_blank" rel="noopener" aria-label="Hugging Face">
+            <svg viewBox="0 0 24 24"><path d="M12 2c5.5 0 10 4.03 10 9s-4.5 9-10 9S2 15.97 2 11s4.5-9 10-9Zm-4 8a1.3 1.3 0 1 0 0 2.6 1.3 1.3 0 0 0 0-2.6Zm8 0a1.3 1.3 0 1 0 0 2.6 1.3 1.3 0 0 0 0-2.6Zm-8.5 4.5s1.2 2 4.5 2 4.5-2 4.5-2-1.7 3.5-4.5 3.5-4.5-3.5-4.5-3.5Z"/></svg>
+          </a>
+          <a class="soc" href="https://www.kaggle.com/sayedshaun" target="_blank" rel="noopener" aria-label="Kaggle">
+            <svg viewBox="0 0 24 24"><path d="M18.5 21.4h-3.3c-.2 0-.4-.1-.5-.3l-4.7-6-1.3 1.2v4.6c0 .3-.2.5-.5.5H5.9c-.3 0-.5-.2-.5-.5V2.6c0-.3.2-.5.5-.5h2.3c.3 0 .5.2.5.5v11.9l5.5-5.6c.1-.1.3-.2.5-.2h3.4c.2 0 .4.1.4.3.1.2 0 .4-.1.5l-6 5.8 6.4 7.6c.1.2.2.4.1.5-.1.2-.3.3-.4.3Z"/></svg>
+          </a>
+          <a class="soc" href="mailto:sayedshaun4@gmail.com" aria-label="Email">
+            <svg viewBox="0 0 24 24"><path d="M2 5.5A1.5 1.5 0 0 1 3.5 4h17A1.5 1.5 0 0 1 22 5.5v13a1.5 1.5 0 0 1-1.5 1.5h-17A1.5 1.5 0 0 1 2 18.5v-13Zm2.2.5 7.8 5.6L19.8 6H4.2Zm-.2 1.4V18h16V7.4l-8 5.75L4 7.4Z"/></svg>
+          </a>
+        </div>
+        <div class="copy">© 2026 Sayed Shaun</div>
+      </div>
+    </div>
+  </aside>
+
+  <div class="right">
+
+    <section id="about">
+      <div class="sec-label">About</div>
+      <div class="about-text">
+        <p>I got into machine learning through software engineering, and honestly that's still
+        how I think about most problems. Training the model is rarely what trips people up. It's
+        usually the pipeline nobody wrote down, a GPU bill nobody planned for, or noticing halfway
+        through that your eval metric quietly stopped meaning anything a while back.</p>
+        <p>Right now that means building <em>agentic systems</em> at work: LLMs that call tools,
+        talk to a few different databases, and actually hold up once real traffic hits them, not
+        just in a demo. I spend a fair bit of time on the less glamorous half too: making all of
+        that cheap enough to run. Outside of work I do research in low-resource NLP, and I'm
+        gearing up for a master's to go further on both.</p>
+      </div>
+      <dl class="glance">
+        <div class="glance-row"><dt>Current role</dt><dd>AI Engineer @ Synesis IT PLC</dd></div>
+        <div class="glance-row"><dt>Location</dt><dd>Dhaka, Bangladesh</dd></div>
+        <div class="glance-row"><dt>Focus</dt><dd>LLM · agentic AI · retrieval systems</dd></div>
+        <div class="glance-row"><dt>Publication</dt><dd>BanSuite (EACL 2026)</dd></div>
+        <div class="glance-row"><dt>Looking for</dt><dd>AI/ML roles, research collaborations, master's programmes</dd></div>
+      </dl>
+    </section>
+
+    <section id="experience">
+      <div class="sec-label">Experience</div>
+      <div class="xp">
+        <div class="xp-row">
+          <span class="xp-when">Jun 2026 – Present</span>
+          <h3 class="xp-co">Synesis IT PLC <span class="xp-loc">· Dhaka, Bangladesh</span></h3>
+          <div class="xp-role">AI Engineer</div>
+          <div class="xp-desc">Research and implement optimisation techniques for small and
+          large language models — quantisation among them — to cut inference latency, shrink
+          model size, and make deployment cheaper. Design and integrate LLM-driven features into
+          Convay, an online meeting platform.</div>
+          <div class="xtags"><span>LLM optimisation</span><span>Quantisation</span><span>Convay</span></div>
+        </div>
+        <div class="xp-row">
+          <span class="xp-when">Sep 2024 – Jun 2026</span>
+          <h3 class="xp-co">Giga Tech Limited <span class="xp-loc">· Dhaka, Bangladesh</span></h3>
+          <div class="xp-role">Machine Learning Engineer</div>
+          <div class="xp-desc">Built an AI-powered web crawler with adaptive parsing and
+          LLM-based content understanding. Built an agentic RAG chatbot for HR that resolved 90%
+          of employee queries. Pretrained and fine-tuned Bangla language models — BERT, GPT, T5,
+          LLaMA — improving NER by 7.14%, POS tagging by 4.64%, and QA by 5.00%.</div>
+          <div class="xtags"><span>Agentic RAG</span><span>Bangla NLP</span><span>Web crawling</span></div>
+        </div>
+        <div class="xp-row">
+          <span class="xp-when">Jun 2024 – Aug 2024</span>
+          <h3 class="xp-co">Syntax Solution Limited <span class="xp-loc">· Dhaka, Bangladesh</span></h3>
+          <div class="xp-role">Trainee Software Engineer</div>
+          <div class="xp-desc">Replaced keyword search in a recommendation engine with a hybrid
+          semantic + keyword architecture, a 25% quality improvement. Shipped a
+          retrieval-augmented chatbot pipeline that lifted customer interaction by roughly 37%.</div>
+          <div class="xtags"><span>Hybrid search</span><span>RAG</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="sec-label">Education</div>
+      <div class="xp">
+        <div class="xp-row">
+          <span class="xp-when">Undergraduate</span>
+          <h3 class="xp-co">World University of Bangladesh <span class="xp-loc">· Dhaka</span></h3>
+          <div class="xp-role">B.Sc. in Computer Science &amp; Engineering</div>
+          <div class="xp-desc">Algorithms, data structures, databases, and software design — the
+          engineering foundation that everything since has been built on.</div>
+          <div class="xtags"><span>Thesis: Advancement in Neuroimaging — Automated
+          Identification of Brain Strokes through Machine Learning</span></div>
+        </div>
+      </div>
+      <p class="note"><strong>Currently preparing for a master's degree</strong></p>
+    </section>
+
+    <section id="skills">
+      <div class="sec-label">Skills</div>
+      <dl class="skills">
+        <div class="skill-row"><dt>Languages</dt><dd><span>Python</span><span>Rust</span><span>SQL</span><span>Bash</span></dd></div>
+        <div class="skill-row"><dt>Modelling</dt><dd><span>PyTorch</span><span>TensorFlow</span><span>JAX</span><span>Transformers</span><span>Hugging Face</span><span>NumPy</span></dd></div>
+        <div class="skill-row"><dt>Serving</dt><dd><span>vLLM</span><span>llama.cpp</span><span>Triton</span><span>ONNX</span></dd></div>
+        <div class="skill-row"><dt>Backend</dt><dd><span>FastAPI</span></dd></div>
+        <div class="skill-row"><dt>Data</dt><dd><span>Pandas</span><span>Polars</span></dd></div>
+        <div class="skill-row"><dt>Database</dt><dd><span>PostgreSQL</span><span>MongoDB</span><span>VectorDB</span></dd></div>
+        <div class="skill-row"><dt>MLOps</dt><dd><span>Docker</span><span>CI/CD</span></dd></div>
+      </dl>
+    </section>
+
+    <section id="research">
+      <div class="sec-label">Research</div>
+      <div class="proj">
+        <div class="prow">
+          <div class="ph">
+            <a class="pname" href="https://aclanthology.org/2026.eacl-demo.44/" target="_blank" rel="noopener">
+              BanSuite: A Unified Toolkit for Low-Resource NLP in Bangla
+              <svg class="pname-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H7M17 7v10"></path></svg>
+            </a>
+            <div class="plinks">
+              <a href="https://aclanthology.org/2026.eacl-demo.44/" target="_blank" rel="noopener" class="plink">Read paper ↗</a>
+            </div>
+          </div>
+          <div class="paper-venue">EACL 2026 · System Demonstrations</div>
+          <div class="pdesc">A Bangla NLP platform bringing POS tagging, NER, shallow parsing, and
+          dependency parsing under one roof, trained on a large manually-annotated treebank —
+          around 90% F1/UAS, ahead of existing Bangla systems and general multilingual LLMs.
+          With Faisal Ahamed Khan, Jannatul Ferdous Tuli, Nabeel Mohammed, Mohammad Ruhul Amin,
+          Mohammad Mamun Or Rashid.</div>
+        </div>
+      </div>
+      <ul class="interests">
+        <li><strong>Multi-agent systems</strong> — coordination, delegation, and control across many agents</li>
+        <li><strong>AI agents</strong> — tool use, planning, memory, and reliability under real workloads</li>
+        <li><strong>Large language models</strong> — training, adaptation, and efficient inference</li>
+        <li><strong>AGI</strong> — generalisation and reasoning beyond narrow, task-specific systems</li>
+      </ul>
+    </section>
+
+    <section id="projects">
+      <div class="sec-label">Projects</div>
+      <div class="proj">
+        <div class="prow">
+          <div class="ph">
+            <a class="pname" href="https://github.com/sayedshaun/subagents" target="_blank" rel="noopener">Subagents
+              <svg class="pname-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H7M17 7v10"></path></svg>
+            </a>
+            <div class="plinks">
+              <a href="https://github.com/sayedshaun/subagents" target="_blank" rel="noopener" class="plink">GitHub</a>
+              <a href="https://sayedshaun.github.io/subagents/" target="_blank" rel="noopener" class="plink">Docs ↗</a>
+            </div>
+          </div>
+          <div class="pdesc">Wires plain Python functions — and the agents inside them — into a
+          graph that runs branches in parallel, routes on conditions, and threads one typed
+          state object through the whole thing.</div>
+          <div class="ptags"><span>Python</span><span>Agent orchestration</span></div>
+        </div>
+        <div class="prow">
+          <div class="ph">
+            <a class="pname" href="https://github.com/sayedshaun/onecrawler" target="_blank" rel="noopener">OneCrawler
+              <svg class="pname-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H7M17 7v10"></path></svg>
+            </a>
+            <div class="plinks">
+              <a href="https://github.com/sayedshaun/onecrawler" target="_blank" rel="noopener" class="plink">GitHub</a>
+            </div>
+          </div>
+          <div class="pdesc">An async crawling library with sitemap discovery, browser-based
+          extraction, and LLM-powered structured output — all driven by a single Settings object.</div>
+          <div class="ptags"><span>Python</span><span>asyncio</span><span>LLM extraction</span></div>
+        </div>
+        <div class="prow">
+          <div class="ph">
+            <a class="pname" href="https://github.com/sayedshaun/onecrawler-backend" target="_blank" rel="noopener">OneCrawler Backend
+              <svg class="pname-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H7M17 7v10"></path></svg>
+            </a>
+            <div class="plinks">
+              <a href="https://github.com/sayedshaun/onecrawler-backend" target="_blank" rel="noopener" class="plink">GitHub</a>
+            </div>
+          </div>
+          <div class="pdesc">The service that turns the library into a platform: a REST API for
+          auth, crawl jobs, settings and extracted data, with crawling handed to an async job
+          queue.</div>
+          <div class="ptags"><span>Python</span><span>FastAPI</span><span>Job queue</span></div>
+        </div>
+        <div class="prow">
+          <div class="ph">
+            <a class="pname" href="https://github.com/sayedshaun/langtrain" target="_blank" rel="noopener">LangTrain
+              <svg class="pname-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H7M17 7v10"></path></svg>
+            </a>
+            <div class="plinks">
+              <a href="https://github.com/sayedshaun/langtrain" target="_blank" rel="noopener" class="plink">GitHub</a>
+            </div>
+          </div>
+          <div class="pdesc">A PyTorch-backed package for rapid language-model development:
+          tokenisation, distributed training, and evaluation without rebuilding the same
+          scaffolding.</div>
+          <div class="ptags"><span>Python</span><span>PyTorch</span><span>Distributed</span></div>
+        </div>
+        <div class="prow">
+          <div class="ph">
+            <a class="pname" href="https://github.com/sayedshaun/wsd" target="_blank" rel="noopener">WSD
+              <svg class="pname-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H7M17 7v10"></path></svg>
+            </a>
+            <div class="plinks">
+              <a href="https://github.com/sayedshaun/wsd" target="_blank" rel="noopener" class="plink">GitHub</a>
+            </div>
+          </div>
+          <div class="pdesc">A dual-architecture pipeline for training and evaluating Word Sense
+          Disambiguation models, shipped with pretrained weights so you can start from a working
+          baseline.</div>
+          <div class="ptags"><span>Python</span><span>PyTorch</span><span>Pretrained</span></div>
+        </div>
+        <div class="prow">
+          <div class="ph">
+            <a class="pname" href="https://corpus.bangla.gov.bd" target="_blank" rel="noopener">Corpus
+              <svg class="pname-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H7M17 7v10"></path></svg>
+            </a>
+            <div class="plinks">
+              <a href="https://corpus.bangla.gov.bd" target="_blank" rel="noopener" class="plink">corpus.bangla.gov.bd ↗</a>
+            </div>
+          </div>
+          <div class="pdesc">Bangladesh's national Bangla NLP platform — corpus development,
+          syntactic annotation, low-resource language models, and downstream tasks built on top
+          of them.</div>
+          <div class="ptags"><span>Bangla NLP</span><span>Core contributor</span></div>
+        </div>
+        <div class="prow">
+          <div class="ph">
+            <a class="pname" href="https://github.com/sayedshaun/chat-docs" target="_blank" rel="noopener">ChatDocs
+              <svg class="pname-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H7M17 7v10"></path></svg>
+            </a>
+            <div class="plinks">
+              <a href="https://github.com/sayedshaun/chat-docs" target="_blank" rel="noopener" class="plink">GitHub</a>
+            </div>
+          </div>
+          <div class="pdesc">A private, self-hosted RAG chatbot for chatting with your own
+          documents — LangChain + LangGraph, FastAPI backend, ChromaDB + PostgreSQL, shipped as
+          a Dockerised stack.</div>
+          <div class="ptags"><span>Python</span><span>LangGraph</span><span>RAG</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="certifications">
+      <div class="sec-label">Certifications</div>
+      <div class="proj">
+        <div class="prow">
+          <div class="ph">
+            <span class="pname">Generative AI with Large Language Models</span>
+            <div class="plinks"><a href="https://www.coursera.org/account/accomplishments/verify/F3MRR42W9ZQC" target="_blank" rel="noopener" class="plink">Verify</a></div>
+          </div>
+          <div class="ptags"><span>Coursera</span><span>DeepLearning.AI</span><span>AWS</span></div>
+        </div>
+        <div class="prow">
+          <div class="ph">
+            <span class="pname">DeepLearning.AI TensorFlow Developer</span>
+            <div class="plinks"><a href="https://www.coursera.org/account/accomplishments/professional-cert/E6SVAQQYNY4U" target="_blank" rel="noopener" class="plink">Verify</a></div>
+          </div>
+          <div class="ptags"><span>Coursera</span><span>DeepLearning.AI</span></div>
+        </div>
+        <div class="prow">
+          <div class="ph">
+            <span class="pname">Transformer Models and BERT Model</span>
+            <div class="plinks"><a href="https://www.coursera.org/account/accomplishments/records/6D4TQ5L6HBJ7" target="_blank" rel="noopener" class="plink">Verify</a></div>
+          </div>
+          <div class="ptags"><span>Coursera</span><span>Google Cloud</span></div>
+        </div>
+        <div class="prow">
+          <div class="ph">
+            <span class="pname">Machine Learning Specialization</span>
+            <div class="plinks"><a href="https://www.coursera.org/account/accomplishments/specialization/QJCRTD63TRC2" target="_blank" rel="noopener" class="plink">Verify</a></div>
+          </div>
+          <div class="ptags"><span>Coursera</span><span>DeepLearning.AI</span><span>Stanford Online</span></div>
+        </div>
+        <div class="prow">
+          <div class="ph">
+            <span class="pname">Mathematics for Machine Learning and Data Science</span>
+            <div class="plinks"><a href="https://www.coursera.org/account/accomplishments/verify/TT4CZEV8F5VB" target="_blank" rel="noopener" class="plink">Verify</a></div>
+          </div>
+          <div class="ptags"><span>Coursera</span><span>DeepLearning.AI</span></div>
+        </div>
+        <div class="prow">
+          <div class="ph">
+            <span class="pname">Data Visualization with Python</span>
+            <div class="plinks"><a href="https://www.coursera.org/account/accomplishments/verify/EELDXXPW2BTN" target="_blank" rel="noopener" class="plink">Verify</a></div>
+          </div>
+          <div class="ptags"><span>Coursera</span><span>IBM</span></div>
+        </div>
+        <div class="prow">
+          <div class="ph">
+            <span class="pname">Master Git and GitHub: Beginner to Expert</span>
+            <div class="plinks"><a href="https://www.udemy.com/certificate/UC-c37cf3f7-9413-482d-a9a7-9ef3cda1d342/" target="_blank" rel="noopener" class="plink">Verify</a></div>
+          </div>
+          <div class="ptags"><span>Udemy</span><span>Anisul Islam</span></div>
+        </div>
+        <div class="prow">
+          <div class="ph">
+            <span class="pname">Finding Your Professional Voice: Confidence &amp; Impact</span>
+            <div class="plinks"><a href="https://www.coursera.org/account/accomplishments/records/WRDMXBAPKBVE" target="_blank" rel="noopener" class="plink">Verify</a></div>
+          </div>
+          <div class="ptags"><span>Coursera</span><span>University of London</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="sec-label">Contact</div>
+      <p class="contact-text">Open to AI/ML engineering roles, research collaborations, and
+      master's programmes. Send me a message, I'll get back to you.</p>
+      <form class="cform" id="contact-form">
+        <div>
+          <span class="label">Email</span>
+          <input type="email" name="email" autocomplete="email" required placeholder="you@example.com">
+        </div>
+        <div>
+          <span class="label">Message</span>
+          <textarea name="message" required rows="4" placeholder="What's on your mind?"></textarea>
+        </div>
+        <div class="row-btn">
+          <button class="send" type="submit">Send</button>
+          <span class="fmsg" role="status" aria-live="polite"></span>
+        </div>
+      </form>
+    </section>
+
+  </div>
+</div>
+</main>
+
+<footer class="mobile-footer">
+  <div class="socials">
+    <a class="soc" href="https://github.com/sayedshaun" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.8.1-.7.1-.7 1.3.1 2 1.3 2 1.3 1.1 2 3 1.4 3.7 1 .1-.8.4-1.4.8-1.7-2.7-.3-5.5-1.3-5.5-6 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.6 3.3-1.2 3.3-1.2.7 1.7.3 2.9.2 3.2.7.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg></a>
+    <a class="soc" href="https://linkedin.com/in/sayed-shaun" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M20.5 2h-17A1.5 1.5 0 0 0 2 3.5v17A1.5 1.5 0 0 0 3.5 22h17a1.5 1.5 0 0 0 1.5-1.5v-17A1.5 1.5 0 0 0 20.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 1 1 8.3 6.5a1.78 1.78 0 0 1-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0 0 13 14.19a.66.66 0 0 0 0 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 0 1 2.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg></a>
+    <a class="soc" href="https://huggingface.co/SayedShaun" target="_blank" rel="noopener" aria-label="Hugging Face"><svg viewBox="0 0 24 24"><path d="M12 2c5.5 0 10 4.03 10 9s-4.5 9-10 9S2 15.97 2 11s4.5-9 10-9Zm-4 8a1.3 1.3 0 1 0 0 2.6 1.3 1.3 0 0 0 0-2.6Zm8 0a1.3 1.3 0 1 0 0 2.6 1.3 1.3 0 0 0 0-2.6Zm-8.5 4.5s1.2 2 4.5 2 4.5-2 4.5-2-1.7 3.5-4.5 3.5-4.5-3.5-4.5-3.5Z"/></svg></a>
+    <a class="soc" href="mailto:sayedshaun4@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24"><path d="M2 5.5A1.5 1.5 0 0 1 3.5 4h17A1.5 1.5 0 0 1 22 5.5v13a1.5 1.5 0 0 1-1.5 1.5h-17A1.5 1.5 0 0 1 2 18.5v-13Zm2.2.5 7.8 5.6L19.8 6H4.2Zm-.2 1.4V18h16V7.4l-8 5.75L4 7.4Z"/></svg></a>
+  </div>
+  <div class="copy">© 2026 Sayed Shaun</div>
+</footer>
+
+<nav class="mobile-navbar" aria-label="Sections (mobile)">
+  <a href="#about" data-section="about">About</a>
+  <a href="#experience" data-section="experience">Experience</a>
+  <a href="#education" data-section="education">Education</a>
+  <a href="#skills" data-section="skills">Skills</a>
+  <a href="#research" data-section="research">Research</a>
+  <a href="#projects" data-section="projects">Projects</a>
+  <a href="#certifications" data-section="certifications">Certifications</a>
+  <a href="#contact" data-section="contact">Contact</a>
+</nav>
+
+<script>
+(function () {
+  var navLinks = document.querySelectorAll(".navlink, .mobile-navbar a");
+  var sections = document.querySelectorAll("section[id]");
+  if (navLinks.length && "IntersectionObserver" in window) {
+    var linksBySection = {};
+    navLinks.forEach(function (l) {
+      (linksBySection[l.dataset.section] = linksBySection[l.dataset.section] || []).push(l);
+    });
+    var obs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        var links = linksBySection[entry.target.id];
+        if (!links) return;
+        if (entry.isIntersecting) {
+          navLinks.forEach(function (l) { l.classList.remove("active"); });
+          links.forEach(function (l) {
+            l.classList.add("active");
+            if (l.closest(".mobile-navbar")) {
+              l.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+            }
+          });
+        }
+      });
+    }, { rootMargin: "-20% 0px -70% 0px" });
+    sections.forEach(function (s) { obs.observe(s); });
+    navLinks.forEach(function (l) { if (l.dataset.section === "about") l.classList.add("active"); });
+
+    // A short last section can sit below the observer's trigger band
+    // without ever fully entering it, so it never gets marked active.
+    // Once the page is scrolled to the bottom, force it active directly.
+    var lastSection = sections[sections.length - 1];
+    var lastLinks = lastSection && linksBySection[lastSection.id];
+    if (lastLinks) {
+      var checkBottom = function () {
+        var atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+        if (atBottom) {
+          navLinks.forEach(function (l) { l.classList.remove("active"); });
+          lastLinks.forEach(function (l) { l.classList.add("active"); });
+        }
+      };
+      window.addEventListener("scroll", checkBottom, { passive: true });
+      window.addEventListener("resize", checkBottom);
+    }
+  }
+
+  var form = document.getElementById("contact-form");
+  if (form) {
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var email = form.email.value.trim();
+      var message = form.message.value.trim();
+      var body = message + "\n\nFrom: " + email;
+      window.location.href = "mailto:sayedshaun4@gmail.com?subject=" +
+        encodeURIComponent("Message from sayedshaun.github.io") +
+        "&body=" + encodeURIComponent(body);
+      var msg = form.querySelector(".fmsg");
+      msg.textContent = "Opening your email client…";
+      msg.classList.add("ok");
+    });
+  }
+})();
+</script>
+
+</body>
+</html>
