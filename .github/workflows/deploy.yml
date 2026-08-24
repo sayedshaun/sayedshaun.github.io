@@ -35,6 +35,13 @@ jobs:
         run: python3 scripts/fetch_resume.py
 
       - run: mkdocs build --strict
+
+      # The homepage is a static file, not an mkdocs page — mkdocs only
+      # builds /blog here. Drop it in as site/index.html after the build so
+      # it doesn't get overwritten.
+      - name: Use onepage/index.html as the site root
+        run: cp onepage/index.html site/index.html
+
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
