@@ -11,18 +11,18 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #0a0a0c;
-    --panel: #121215;
-    --line: #22222a;
-    --line-soft: #1a1a1f;
-    --line-strong: #2c2c34;
-    --text: #ecedef;
-    --text-2: #a4a6ad;
-    --text-dim: #71747c;
-    --text-mute: #4d5058;
+    --bg: #07070a;
+    --panel: #14151a;
+    --line: rgba(255, 255, 255, 0.09);
+    --line-soft: rgba(255, 255, 255, 0.055);
+    --line-strong: rgba(255, 255, 255, 0.16);
+    --text: #f4f5f7;
+    --text-2: #aaadb6;
+    --text-dim: #7e818a;
+    --text-mute: #575a62;
     --accent: #2dd4bf;
-    --accent-soft: rgba(45, 212, 191, 0.1);
-    --accent-line: rgba(45, 212, 191, 0.25);
+    --accent-soft: rgba(45, 212, 191, 0.12);
+    --accent-line: rgba(45, 212, 191, 0.3);
   }
   :root[data-theme="light"] {
     --bg: #fdfdfc;
@@ -41,7 +41,6 @@
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
   html, body {
-    background: var(--bg);
     color: var(--text);
     -webkit-font-smoothing: antialiased;
     letter-spacing: -0.01em;
@@ -51,8 +50,26 @@
     line-height: 1.55;
     transition: background 0.2s ease, color 0.2s ease;
   }
+  body {
+    background:
+      radial-gradient(1000px 560px at 10% -8%, rgba(45, 212, 191, 0.09), transparent 60%),
+      radial-gradient(760px 480px at 92% 8%, rgba(99, 102, 241, 0.07), transparent 55%),
+      var(--bg);
+  }
+  :root[data-theme="light"] body {
+    background:
+      radial-gradient(1000px 560px at 10% -8%, rgba(15, 118, 110, 0.06), transparent 60%),
+      radial-gradient(760px 480px at 92% 8%, rgba(99, 102, 241, 0.05), transparent 55%),
+      var(--bg);
+  }
   a { color: inherit; text-decoration: none; }
   ::selection { background: var(--accent); color: #001b16; }
+
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--line-strong); border-radius: 8px; border: 2px solid var(--bg); }
+  ::-webkit-scrollbar-thumb:hover { background: var(--text-mute); }
+  html { scrollbar-color: var(--line-strong) transparent; }
 
   .layout {
     display: grid;
@@ -80,7 +97,8 @@
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 22px;
-    box-shadow: 0 0 0 1px var(--line-strong), 0 0 0 5px var(--bg), 0 0 0 6px var(--accent-line);
+    box-shadow: 0 0 0 1px var(--line-strong), 0 0 0 5px var(--bg), 0 0 0 6px var(--accent-line),
+      0 6px 24px rgba(0, 0, 0, 0.4);
   }
   .hello {
     display: inline-flex;
@@ -181,8 +199,8 @@
 
   /* ---------- right: scrollable sections ---------- */
   .right { padding: 80px 0; display: flex; flex-direction: column; }
-  section { padding: 0 0 200px; scroll-margin-top: 80px; }
-  section:last-child { padding-bottom: 120px; }
+  section { padding: 0 0 88px; scroll-margin-top: 80px; }
+  section:last-child { padding-bottom: 60px; }
   .sec-label { font-size: 18px; font-weight: 600; color: var(--text); letter-spacing: -0.02em; margin-bottom: 28px; }
 
   .about-text { font-size: 15px; line-height: 1.7; color: var(--text-2); }
@@ -233,9 +251,11 @@
   .xtags span:not(:last-child)::after { content: "·"; margin: 0 8px; }
 
   .note {
-    margin-top: 28px;
-    padding-left: 24px;
-    border-left: 1px solid var(--line);
+    margin-top: 20px;
+    padding: 12px 16px;
+    border-left: 2px solid var(--accent);
+    background: var(--accent-soft);
+    border-radius: 0 8px 8px 0;
     font-size: 13px;
     color: var(--text-dim);
     line-height: 1.6;
@@ -253,9 +273,18 @@
 
   /* ---------- project / cert rows ---------- */
   .proj { display: flex; flex-direction: column; }
-  .prow { padding: 16px 0; border-bottom: 1px solid var(--line-soft); color: var(--text); }
+  .prow {
+    padding: 16px 12px;
+    margin: 0 -12px;
+    border-radius: 10px;
+    border-bottom: 1px solid var(--line-soft);
+    color: var(--text);
+    transition: background 0.15s;
+  }
   .prow:first-child { border-top: 1px solid var(--line-soft); }
   .prow:last-child { border-bottom: none; }
+  .prow:hover { background: rgba(255, 255, 255, 0.025); }
+  :root[data-theme="light"] .prow:hover { background: rgba(0, 0, 0, 0.02); }
   .ph { display: flex; align-items: baseline; justify-content: space-between; gap: 14px; flex-wrap: wrap; }
   .pname { display: inline-flex; align-items: center; gap: 5px; font-size: 15px; font-weight: 600; color: var(--text); letter-spacing: -0.01em; transition: color 0.15s; }
   .pname:hover { color: var(--accent); }
@@ -324,8 +353,8 @@
     .left-inner { padding: 48px 0 32px; gap: 32px; }
     .left-bottom, .sidenav { display: none; }
     .right { padding: 0; }
-    section { padding-bottom: 64px; }
-    section:last-child { padding-bottom: 64px; }
+    section { padding-bottom: 48px; }
+    section:last-child { padding-bottom: 48px; }
     .mobile-footer {
       display: flex;
       flex-direction: column;
